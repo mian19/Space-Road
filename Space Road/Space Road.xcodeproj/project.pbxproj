@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5755339DB05FC045EF5FB3FA /* Pods_Space_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */; };
+		67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B76284BA4BC0034720F /* AppDelegate.swift */; };
+		67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B78284BA4BC0034720F /* SceneDelegate.swift */; };
+		67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B7A284BA4BC0034720F /* MainViewController.swift */; };
+		67C03B7E284BA4BC0034720F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B7C284BA4BC0034720F /* Main.storyboard */; };
+		67C03B80284BA4BD0034720F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B7F284BA4BD0034720F /* Assets.xcassets */; };
+		67C03B83284BA4BD0034720F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */; };
+		67C03B8C284BAA0C0034720F /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B8B284BAA0C0034720F /* AuthenticationViewController.swift */; };
+		67C03B8E284BAA200034720F /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B8D284BAA200034720F /* AuthenticationViewController.storyboard */; };
+		67C03B97284BB1010034720F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B99284BB1010034720F /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.release.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.release.xcconfig"; sourceTree = "<group>"; };
+		660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Road.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67C03B73284BA4BC0034720F /* Space Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67C03B76284BA4BC0034720F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		67C03B78284BA4BC0034720F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		67C03B7A284BA4BC0034720F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		67C03B7D284BA4BC0034720F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67C03B7F284BA4BD0034720F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		67C03B82284BA4BD0034720F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		67C03B84284BA4BD0034720F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67C03B8B284BAA0C0034720F /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		67C03B8D284BAA200034720F /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
+		67C03B93284BB0D10034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		67C03B94284BB0D10034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		67C03B95284BB0F80034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		67C03B96284BB0F80034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		67C03B98284BB1010034720F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		67C03B9A284BB1050034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		67C03B9B284BB1060034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.debug.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67C03B70284BA4BC0034720F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5755339DB05FC045EF5FB3FA /* Pods_Space_Road.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39629541BC6F023EF36E9A61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */,
+				1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		67C03B6A284BA4BB0034720F = {
+			isa = PBXGroup;
+			children = (
+				67C03B75284BA4BC0034720F /* Space Road */,
+				67C03B74284BA4BC0034720F /* Products */,
+				39629541BC6F023EF36E9A61 /* Pods */,
+				70B5056D610BE8C3863737D9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		67C03B74284BA4BC0034720F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67C03B73284BA4BC0034720F /* Space Road.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67C03B75284BA4BC0034720F /* Space Road */ = {
+			isa = PBXGroup;
+			children = (
+				67C03B76284BA4BC0034720F /* AppDelegate.swift */,
+				67C03B78284BA4BC0034720F /* SceneDelegate.swift */,
+				67C03B99284BB1010034720F /* Localizable.strings */,
+				67C03B8A284BA9DF0034720F /* Authentication Screen */,
+				67C03B8F284BAB130034720F /* Main Screen */,
+				67C03B7F284BA4BD0034720F /* Assets.xcassets */,
+				67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */,
+				67C03B84284BA4BD0034720F /* Info.plist */,
+			);
+			path = "Space Road";
+			sourceTree = "<group>";
+		};
+		67C03B8A284BA9DF0034720F /* Authentication Screen */ = {
+			isa = PBXGroup;
+			children = (
+				67C03B8B284BAA0C0034720F /* AuthenticationViewController.swift */,
+				67C03B8D284BAA200034720F /* AuthenticationViewController.storyboard */,
+			);
+			path = "Authentication Screen";
+			sourceTree = "<group>";
+		};
+		67C03B8F284BAB130034720F /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				67C03B7A284BA4BC0034720F /* MainViewController.swift */,
+				67C03B7C284BA4BC0034720F /* Main.storyboard */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		70B5056D610BE8C3863737D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67C03B72284BA4BC0034720F /* Space Road */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67C03B87284BA4BD0034720F /* Build configuration list for PBXNativeTarget "Space Road" */;
+			buildPhases = (
+				F19AF8005E4AC8FA8CC60F72 /* [CP] Check Pods Manifest.lock */,
+				67D38193284D30B70086EC8A /* Run SwiftLint */,
+				67C03B6F284BA4BC0034720F /* Sources */,
+				67C03B70284BA4BC0034720F /* Frameworks */,
+				67C03B71284BA4BC0034720F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Space Road";
+			productName = "Space Road";
+			productReference = 67C03B73284BA4BC0034720F /* Space Road.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67C03B6B284BA4BB0034720F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					67C03B72284BA4BC0034720F = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 67C03B6E284BA4BB0034720F /* Build configuration list for PBXProject "Space Road" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+				es,
+			);
+			mainGroup = 67C03B6A284BA4BB0034720F;
+			productRefGroup = 67C03B74284BA4BC0034720F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67C03B72284BA4BC0034720F /* Space Road */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67C03B71284BA4BC0034720F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67C03B97284BB1010034720F /* Localizable.strings in Resources */,
+				67C03B83284BA4BD0034720F /* LaunchScreen.storyboard in Resources */,
+				67C03B8E284BAA200034720F /* AuthenticationViewController.storyboard in Resources */,
+				67C03B80284BA4BD0034720F /* Assets.xcassets in Resources */,
+				67C03B7E284BA4BC0034720F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67D38193284D30B70086EC8A /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		F19AF8005E4AC8FA8CC60F72 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space Road-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67C03B6F284BA4BC0034720F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67C03B8C284BAA0C0034720F /* AuthenticationViewController.swift in Sources */,
+				67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */,
+				67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */,
+				67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		67C03B7C284BA4BC0034720F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67C03B7D284BA4BC0034720F /* Base */,
+				67C03B93284BB0D10034720F /* ru */,
+				67C03B95284BB0F80034720F /* es */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67C03B82284BA4BD0034720F /* Base */,
+				67C03B94284BB0D10034720F /* ru */,
+				67C03B96284BB0F80034720F /* es */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		67C03B99284BB1010034720F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67C03B98284BB1010034720F /* en */,
+				67C03B9A284BB1050034720F /* ru */,
+				67C03B9B284BB1060034720F /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67C03B85284BA4BD0034720F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		67C03B86284BA4BD0034720F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67C03B88284BA4BD0034720F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 67A656CXMY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Space Road/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyzu.Space-Road";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		67C03B89284BA4BD0034720F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 67A656CXMY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Space Road/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyzu.Space-Road";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67C03B6E284BA4BB0034720F /* Build configuration list for PBXProject "Space Road" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67C03B85284BA4BD0034720F /* Debug */,
+				67C03B86284BA4BD0034720F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67C03B87284BA4BD0034720F /* Build configuration list for PBXNativeTarget "Space Road" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67C03B88284BA4BD0034720F /* Debug */,
+				67C03B89284BA4BD0034720F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67C03B6B284BA4BB0034720F /* Project object */;
+}
