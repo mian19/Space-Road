@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-        let storyboard = UIStoryboard(name: "AuthenticationViewController", bundle: .main)
-        guard let viewController = storyboard.instantiateInitialViewController() as? AuthenticationViewController else {
+        let storyboard = UIStoryboard(name: "RegistrationViewController", bundle: .main)
+        guard let viewController = storyboard.instantiateInitialViewController() as? RegistrationViewController else {
             return
         }
         navController.pushViewController(viewController, animated: false)
