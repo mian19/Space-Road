@@ -6,3 +6,7 @@
   
 */
 "titleLabel.title" = "Регистрация";
+"nickNameTextField.placeholder" = "Введите ник";
+"emailTextField.placeholder" = "Введите почту";
+"passwordTextField.placeholder" = "Введите пароль";
+"registrateButton.text" = "Зарегистрироваться";

@@ -7,3 +7,7 @@
 */
 
 "titleLabel.title" = "Registration";
+"nickNameTextField.placeholder" = "Enter nickname";
+"emailTextField.placeholder" = "Enter email";
+"passwordTextField.placeholder" = "Enter password";
+"registrateButton.text" = "Sign Up";

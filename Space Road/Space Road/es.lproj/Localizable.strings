@@ -6,3 +6,7 @@
   
 */
 "titleLabel.title" = "Registro";
+"nickNameTextField.placeholder" = "Introduce el apodo";
+"emailTextField.placeholder" = "Correo electrónico";
+"passwordTextField.placeholder" = "Contraseña";
+"registrateButton.text" = "Registrarse";

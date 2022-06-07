@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5755339DB05FC045EF5FB3FA /* Pods_Space_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */; };
+		5B804935D3035D62EB241E56 /* Pods_Space_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5EA3521E78CB8A95C324E4 /* Pods_Space_Road.framework */; };
 		678DE703284D4E2A00CF3CD3 /* kenvector_future.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE702284D4E2A00CF3CD3 /* kenvector_future.ttf */; };
 		678DE725284D51EC00CF3CD3 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DE724284D51EC00CF3CD3 /* String+Localizable.swift */; };
 		678DE72A284D584D00CF3CD3 /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE727284D584D00CF3CD3 /* Play-Regular.ttf */; };
 		678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 678DE728284D584D00CF3CD3 /* OFL.txt */; };
 		678DE72C284D584D00CF3CD3 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE729284D584D00CF3CD3 /* Play-Bold.ttf */; };
+		67BEE2E1284DFF5700BAC556 /* TextField+RegistrationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEE2E0284DFF5700BAC556 /* TextField+RegistrationTF.swift */; };
+		67BEE2E3284E03C200BAC556 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEE2E2284E03C200BAC556 /* UIColor+hex.swift */; };
+		67BEE2E5284E249100BAC556 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67BEE2E4284E249100BAC556 /* GoogleService-Info.plist */; };
 		67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B76284BA4BC0034720F /* AppDelegate.swift */; };
 		67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B78284BA4BC0034720F /* SceneDelegate.swift */; };
 		67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B7A284BA4BC0034720F /* MainViewController.swift */; };
@@ -25,14 +28,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.release.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.release.xcconfig"; sourceTree = "<group>"; };
-		660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Road.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E5EA3521E78CB8A95C324E4 /* Pods_Space_Road.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Road.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		678DE702284D4E2A00CF3CD3 /* kenvector_future.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kenvector_future.ttf; sourceTree = "<group>"; };
 		678DE706284D4E5200CF3CD3 /* kenvector_future_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kenvector_future_thin.ttf; sourceTree = "<group>"; };
 		678DE724284D51EC00CF3CD3 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		678DE727284D584D00CF3CD3 /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		678DE728284D584D00CF3CD3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		678DE729284D584D00CF3CD3 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
+		67BEE2E0284DFF5700BAC556 /* TextField+RegistrationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+RegistrationTF.swift"; sourceTree = "<group>"; };
+		67BEE2E2284E03C200BAC556 /* UIColor+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		67BEE2E4284E249100BAC556 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67C03B73284BA4BC0034720F /* Space Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C03B76284BA4BC0034720F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67C03B78284BA4BC0034720F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +55,8 @@
 		67C03B98284BB1010034720F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		67C03B9A284BB1050034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		67C03B9B284BB1060034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.debug.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.debug.xcconfig"; sourceTree = "<group>"; };
+		77B434343D8751A6D6CD4631 /* Pods-Space Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.debug.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.debug.xcconfig"; sourceTree = "<group>"; };
+		E865A2AC36878ADACD5BAA57 /* Pods-Space Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Road.release.xcconfig"; path = "Target Support Files/Pods-Space Road/Pods-Space Road.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,18 +64,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5755339DB05FC045EF5FB3FA /* Pods_Space_Road.framework in Frameworks */,
+				5B804935D3035D62EB241E56 /* Pods_Space_Road.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4F742363086E200CCD6289 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E5EA3521E78CB8A95C324E4 /* Pods_Space_Road.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		39629541BC6F023EF36E9A61 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */,
-				1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */,
+				77B434343D8751A6D6CD4631 /* Pods-Space Road.debug.xcconfig */,
+				E865A2AC36878ADACD5BAA57 /* Pods-Space Road.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -105,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				678DE724284D51EC00CF3CD3 /* String+Localizable.swift */,
+				67BEE2E0284DFF5700BAC556 /* TextField+RegistrationTF.swift */,
+				67BEE2E2284E03C200BAC556 /* UIColor+hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -125,7 +141,7 @@
 				67C03B75284BA4BC0034720F /* Space Road */,
 				67C03B74284BA4BC0034720F /* Products */,
 				39629541BC6F023EF36E9A61 /* Pods */,
-				70B5056D610BE8C3863737D9 /* Frameworks */,
+				0A4F742363086E200CCD6289 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +165,7 @@
 				67C03B8F284BAB130034720F /* Main Screen */,
 				67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */,
 				67C03B84284BA4BD0034720F /* Info.plist */,
+				67BEE2E4284E249100BAC556 /* GoogleService-Info.plist */,
 			);
 			path = "Space Road";
 			sourceTree = "<group>";
@@ -171,14 +188,6 @@
 			path = "Main Screen";
 			sourceTree = "<group>";
 		};
-		70B5056D610BE8C3863737D9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				660A61E2F74EBF64BF016721 /* Pods_Space_Road.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,11 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67C03B87284BA4BD0034720F /* Build configuration list for PBXNativeTarget "Space Road" */;
 			buildPhases = (
-				F19AF8005E4AC8FA8CC60F72 /* [CP] Check Pods Manifest.lock */,
+				39CA1EE6E83346C730F4B5C7 /* [CP] Check Pods Manifest.lock */,
 				67D38193284D30B70086EC8A /* Run SwiftLint */,
 				67C03B6F284BA4BC0034720F /* Sources */,
 				67C03B70284BA4BC0034720F /* Frameworks */,
 				67C03B71284BA4BC0034720F /* Resources */,
+				7F99495D8F7F28EDC4C07BA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +258,7 @@
 				67C03B80284BA4BD0034720F /* Assets.xcassets in Resources */,
 				67C03B7E284BA4BC0034720F /* Main.storyboard in Resources */,
 				678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */,
+				67BEE2E5284E249100BAC556 /* GoogleService-Info.plist in Resources */,
 				678DE72C284D584D00CF3CD3 /* Play-Bold.ttf in Resources */,
 				678DE72A284D584D00CF3CD3 /* Play-Regular.ttf in Resources */,
 			);
@@ -256,25 +267,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		67D38193284D30B70086EC8A /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		F19AF8005E4AC8FA8CC60F72 /* [CP] Check Pods Manifest.lock */ = {
+		39CA1EE6E83346C730F4B5C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,6 +289,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		67D38193284D30B70086EC8A /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		7F99495D8F7F28EDC4C07BA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Road/Pods-Space Road-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Space Road/Pods-Space Road-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Road/Pods-Space Road-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -303,8 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67BEE2E3284E03C200BAC556 /* UIColor+hex.swift in Sources */,
 				67C03B8C284BAA0C0034720F /* RegistrationViewController.swift in Sources */,
 				678DE725284D51EC00CF3CD3 /* String+Localizable.swift in Sources */,
+				67BEE2E1284DFF5700BAC556 /* TextField+RegistrationTF.swift in Sources */,
 				67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */,
 				67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */,
 				67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */,
@@ -465,7 +495,7 @@
 		};
 		67C03B88284BA4BD0034720F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A215389EE0E29FB643522523 /* Pods-Space Road.debug.xcconfig */;
+			baseConfigurationReference = 77B434343D8751A6D6CD4631 /* Pods-Space Road.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -494,7 +524,7 @@
 		};
 		67C03B89284BA4BD0034720F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CF3BB8FE5D6132B6444353A /* Pods-Space Road.release.xcconfig */;
+			baseConfigurationReference = E865A2AC36878ADACD5BAA57 /* Pods-Space Road.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
