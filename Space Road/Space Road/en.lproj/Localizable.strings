@@ -11,3 +11,5 @@
 "emailTextField.placeholder" = "Enter email";
 "passwordTextField.placeholder" = "Enter password";
 "registrateButton.text" = "Sign Up";
+"alredyLabel.title" = "Alredy have account?";
+"authorizationButton.text" = "Log in";

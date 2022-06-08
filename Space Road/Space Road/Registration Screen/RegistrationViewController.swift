@@ -15,6 +15,8 @@ class RegistrationViewController: UIViewController {
     private var passwordTextField: UITextField!
     private var registrateButton: UIButton!
     private var loginButton: UIButton?
+    private var alredyLabel: UILabel!
+    private var authorizationButton: UIButton!
 
     override func loadView() {
         setView()
@@ -24,6 +26,8 @@ class RegistrationViewController: UIViewController {
         setEmailTextField()
         setPasswordTextField()
         setRegistrateButton()
+        setAlredyLabel()
+        setAuthorizationButton()
 
     }
     override func viewDidLoad() {
@@ -73,6 +77,28 @@ class RegistrationViewController: UIViewController {
         registrateButton.clipsToBounds = true
         view.addSubview(registrateButton)
     }
+    private func setAlredyLabel() {
+        alredyLabel = UILabel()
+        alredyLabel.text = "alredyLabel.title".localizable()
+        alredyLabel.translatesAutoresizingMaskIntoConstraints = false
+        alredyLabel.adjustsFontSizeToFitWidth = true
+        alredyLabel.textColor = .white
+        alredyLabel.textAlignment = .center
+        alredyLabel.font = UIFont(name: "Play-Bold", size: 35)
+        view.addSubview(alredyLabel)
+    }
+    private func setAuthorizationButton() {
+        authorizationButton = UIButton()
+        authorizationButton.translatesAutoresizingMaskIntoConstraints = false
+        authorizationButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        authorizationButton.setTitle("authorizationButton.text".localizable(), for: .normal)
+        authorizationButton.titleLabel?.font = UIFont(name: "Play-Bold", size: 22)
+        authorizationButton.setTitleColor(UIColor.init(hex: "34cceb"), for: .normal)
+        authorizationButton.backgroundColor = .none
+        authorizationButton.layer.cornerRadius = 8
+        authorizationButton.clipsToBounds = true
+        view.addSubview(authorizationButton)
+    }
 
     private func setElements() {
         NSLayoutConstraint.activate([
@@ -95,8 +121,16 @@ class RegistrationViewController: UIViewController {
             registrateButton.widthAnchor.constraint(equalToConstant: 140),
             registrateButton.heightAnchor.constraint(equalToConstant: 50),
             registrateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registrateButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30)
-
+            registrateButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
+            alredyLabel.widthAnchor.constraint(equalTo: registrateButton.widthAnchor, multiplier: 1.2, constant: 0)  ,
+            alredyLabel.heightAnchor.constraint(equalToConstant: 40),
+            alredyLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
+            alredyLabel.topAnchor.constraint(equalTo: registrateButton.bottomAnchor, constant: 20),
+            authorizationButton.topAnchor.constraint(equalTo: alredyLabel.topAnchor),
+            authorizationButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
+            authorizationButton.leadingAnchor.constraint(equalTo: alredyLabel.trailingAnchor),
+            authorizationButton.heightAnchor.constraint(equalTo: alredyLabel.heightAnchor)
+            
         ])
     }
 

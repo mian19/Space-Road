@@ -10,3 +10,5 @@
 "emailTextField.placeholder" = "Correo electrónico";
 "passwordTextField.placeholder" = "Contraseña";
 "registrateButton.text" = "Registrarse";
+"alredyLabel.title" = "Ya tienes una cuenta?";
+"authorizationButton.text" = "Iniciar";

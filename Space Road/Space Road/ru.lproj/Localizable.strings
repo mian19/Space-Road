@@ -10,3 +10,5 @@
 "emailTextField.placeholder" = "Введите почту";
 "passwordTextField.placeholder" = "Введите пароль";
 "registrateButton.text" = "Зарегистрироваться";
+"alredyLabel.title" = "Уже есть аккаунт?";
+"authorizationButton.text" = "Войти";
