@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:323977689011:ios:ee9d3a101bbe9e7e53fdc6</string>
+	<key>DATABASE_URL</key>
+	<string>https://space-road-92470-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

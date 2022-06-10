@@ -6,22 +6,16 @@
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // swiftlint:disable line_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-        Auth.auth().addStateDidChangeListener{(auth, user ) in
-            if user == nil {
-                
-            }
-        }
+
         return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 

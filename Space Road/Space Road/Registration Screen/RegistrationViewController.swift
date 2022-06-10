@@ -3,12 +3,17 @@
 //  Space Road
 //
 //  Created by Kyzu on 4.06.22.
-//
+// swiftlint:disable line_length
+// // swiftlint:disable all
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class RegistrationViewController: UIViewController {
 
+    private var scrollView: UIScrollView!
+    private var backImageView: UIImageView!
     private var titleLabel: UILabel!
     private var nickNameTextField: UITextField!
     private var emailTextField: UITextField!
@@ -17,6 +22,7 @@ class RegistrationViewController: UIViewController {
     private var loginButton: UIButton?
     private var alredyLabel: UILabel!
     private var authorizationButton: UIButton!
+    private var isExpand = false
 
     override func loadView() {
         setView()
@@ -32,16 +38,44 @@ class RegistrationViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        registerForKeyboardNotifications()
         setElements()
+        nickNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func keyboardAppear(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+             let keyboardHeight = keyboardSize.height
+            let offset = view.frame.maxY - registrateButton.frame.maxY
+            if keyboardHeight > offset {
+                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - offset)
+            }
+         }
+    }
+    @objc func keyboardDisappear() {
+        scrollView.contentOffset = CGPoint.zero
+    }
+    
     private func setView() {
-        let custonView = UIView(frame: UIScreen.main.bounds)
-        view = custonView
+        let customView = UIView(frame: UIScreen.main.bounds)
+        view = customView
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focus)))
+        view.addSubview(scrollView)
     }
     private func setBackgroundImage() {
-        let backImageView = UIImageView(frame: view.frame)
+        backImageView = UIImageView()
+        backImageView.translatesAutoresizingMaskIntoConstraints = false
         backImageView.image = UIImage(named: "registrationScreen")
-        view.addSubview(backImageView)
+        backImageView.contentMode = .scaleAspectFill
+        scrollView.addSubview(backImageView)
     }
     private func setTitleLabel() {
         titleLabel = UILabel()
@@ -51,19 +85,22 @@ class RegistrationViewController: UIViewController {
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "Play-Bold", size: 105)
-        view.addSubview(titleLabel)
+        scrollView.addSubview(titleLabel)
     }
     private func setNickNameTextField() {
         nickNameTextField = UITextField.registrationTF(placeholder: "nickNameTextField.placeholder")
-        view.addSubview(nickNameTextField)
+        nickNameTextField.autocorrectionType = .no
+        scrollView.addSubview(nickNameTextField)
     }
     private func setEmailTextField() {
         emailTextField = UITextField.registrationTF(placeholder: "emailTextField.placeholder")
-        view.addSubview(emailTextField)
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.textContentType = .emailAddress
+        scrollView.addSubview(emailTextField)
     }
     private func setPasswordTextField() {
         passwordTextField = UITextField.registrationTF(placeholder: "passwordTextField.placeholder")
-        view.addSubview(passwordTextField)
+        scrollView.addSubview(passwordTextField)
     }
     private func setRegistrateButton() {
         registrateButton = UIButton()
@@ -75,7 +112,7 @@ class RegistrationViewController: UIViewController {
         registrateButton.backgroundColor = UIColor.init(hex: "1d54cc")
         registrateButton.layer.cornerRadius = 8
         registrateButton.clipsToBounds = true
-        view.addSubview(registrateButton)
+        scrollView.addSubview(registrateButton)
     }
     private func setAlredyLabel() {
         alredyLabel = UILabel()
@@ -84,28 +121,39 @@ class RegistrationViewController: UIViewController {
         alredyLabel.adjustsFontSizeToFitWidth = true
         alredyLabel.textColor = .white
         alredyLabel.textAlignment = .center
-        alredyLabel.font = UIFont(name: "Play-Bold", size: 35)
-        view.addSubview(alredyLabel)
+        alredyLabel.font = UIFont(name: "Play-Bold", size: 28)
+        scrollView.addSubview(alredyLabel)
     }
     private func setAuthorizationButton() {
         authorizationButton = UIButton()
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
         authorizationButton.titleLabel?.adjustsFontSizeToFitWidth = true
         authorizationButton.setTitle("authorizationButton.text".localizable(), for: .normal)
-        authorizationButton.titleLabel?.font = UIFont(name: "Play-Bold", size: 22)
+        authorizationButton.titleLabel?.font = UIFont(name: "Play-Bold", size: 28)
         authorizationButton.setTitleColor(UIColor.init(hex: "34cceb"), for: .normal)
         authorizationButton.backgroundColor = .none
         authorizationButton.layer.cornerRadius = 8
         authorizationButton.clipsToBounds = true
-        view.addSubview(authorizationButton)
+        scrollView.addSubview(authorizationButton)
+    }
+    @objc private func focus(){
+        scrollView.endEditing(true)
     }
 
     private func setElements() {
         NSLayoutConstraint.activate([
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            backImageView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            backImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
-            titleLabel.heightAnchor.constraint(equalToConstant: 70),
+            titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
             nickNameTextField.widthAnchor.constraint(equalTo: titleLabel.widthAnchor),
             nickNameTextField.heightAnchor.constraint(equalToConstant: 50),
             nickNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -122,16 +170,38 @@ class RegistrationViewController: UIViewController {
             registrateButton.heightAnchor.constraint(equalToConstant: 50),
             registrateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             registrateButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
-            alredyLabel.widthAnchor.constraint(equalTo: registrateButton.widthAnchor, multiplier: 1.2, constant: 0)  ,
+            alredyLabel.widthAnchor.constraint(equalTo: registrateButton.widthAnchor, multiplier: 1, constant: 0)  ,
             alredyLabel.heightAnchor.constraint(equalToConstant: 40),
             alredyLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
-            alredyLabel.topAnchor.constraint(equalTo: registrateButton.bottomAnchor, constant: 20),
+            alredyLabel.topAnchor.constraint(equalTo: registrateButton.bottomAnchor, constant: 30),
             authorizationButton.topAnchor.constraint(equalTo: alredyLabel.topAnchor),
             authorizationButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             authorizationButton.leadingAnchor.constraint(equalTo: alredyLabel.trailingAnchor),
             authorizationButton.heightAnchor.constraint(equalTo: alredyLabel.heightAnchor)
-            
         ])
     }
 
+}
+
+extension RegistrationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nick = nickNameTextField.text!
+        let email = emailTextField.text!
+        let pass = passwordTextField.text!
+        
+        if (!nick.isEmpty && !email.isEmpty && !pass.isEmpty) {
+            Auth.auth().createUser(withEmail: email, password: pass) {(result, error) in
+                if error == nil {
+                    if let result = result {
+                        
+                     print(result.user.uid)
+                    let ref = Database.database().reference().child("users")
+                        ref.child(result.user.uid).updateChildValues(["nick": nick, "email": email])
+                }
+                                                                  }
+            }
+        }
+        
+        return true
+    }
 }
