@@ -10,5 +10,6 @@ pod 'SwiftLint', '~> 0.27'
 pod 'FirebaseCore'
 pod 'FirebaseAuth'
 pod 'FirebaseDatabase'
+pod 'KeychainSwift', '~> 20.0'
 end
 

@@ -8,8 +8,9 @@
 import UIKit
 import FirebaseAuth
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Storyboarded {
     var button: UIButton!
+    weak var appCoordinator: AppCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

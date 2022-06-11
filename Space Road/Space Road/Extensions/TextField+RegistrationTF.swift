@@ -12,6 +12,9 @@ extension UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.adjustsFontSizeToFitWidth = true
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.keyboardType = .alphabet
         textField.font = UIFont(name: "Play-Regular", size: 88)
         textField.returnKeyType = .done
         textField.backgroundColor = .white

@@ -3,7 +3,7 @@
 //  Space Road
 //
 //  Created by Kyzu on 9.06.22.
-//
+// swiftlint:disable force_cast
 
 import Foundation
 import UIKit
@@ -16,8 +16,7 @@ extension Storyboarded where Self: UIViewController {
     static func createObject() -> Self {
         let id = String(describing: self)
         let storyboard = UIStoryboard(name: id, bundle: .main)
-        // swiftlint:disable force_cast
-        let vc = storyboard.instantiateInitialViewController() as! Self
-        return vc
+        let viewController = storyboard.instantiateInitialViewController() as! Self
+        return viewController
     }
 }

@@ -17,12 +17,16 @@
 		678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 678DE728284D584D00CF3CD3 /* OFL.txt */; };
 		678DE72C284D584D00CF3CD3 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE729284D584D00CF3CD3 /* Play-Bold.ttf */; };
 		67BE1EDF2850FDA90096E845 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67BE1EDE2850FDA80096E845 /* GoogleService-Info.plist */; };
+		67BE8D482854FD8400AF3B7F /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE8D472854FD8400AF3B7F /* FirebaseManager.swift */; };
+		67BE8D4A2855040100AF3B7F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE8D492855040100AF3B7F /* Presenter.swift */; };
+		67BED9932854BE9000D9FE17 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BED9922854BE9000D9FE17 /* KeychainManager.swift */; };
+		67BED9962854C95000D9FE17 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BED9952854C95000D9FE17 /* User.swift */; };
 		67BEE2E1284DFF5700BAC556 /* TextField+RegistrationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEE2E0284DFF5700BAC556 /* TextField+RegistrationTF.swift */; };
 		67BEE2E3284E03C200BAC556 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEE2E2284E03C200BAC556 /* UIColor+hex.swift */; };
 		67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B76284BA4BC0034720F /* AppDelegate.swift */; };
 		67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B78284BA4BC0034720F /* SceneDelegate.swift */; };
 		67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B7A284BA4BC0034720F /* MainViewController.swift */; };
-		67C03B7E284BA4BC0034720F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B7C284BA4BC0034720F /* Main.storyboard */; };
+		67C03B7E284BA4BC0034720F /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B7C284BA4BC0034720F /* MainViewController.storyboard */; };
 		67C03B80284BA4BD0034720F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B7F284BA4BD0034720F /* Assets.xcassets */; };
 		67C03B83284BA4BD0034720F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */; };
 		67C03B8C284BAA0C0034720F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C03B8B284BAA0C0034720F /* RegistrationViewController.swift */; };
@@ -42,21 +46,25 @@
 		678DE728284D584D00CF3CD3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		678DE729284D584D00CF3CD3 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		67BE1EDE2850FDA80096E845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		67BE8D472854FD8400AF3B7F /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		67BE8D492855040100AF3B7F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		67BED9922854BE9000D9FE17 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		67BED9952854C95000D9FE17 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		67BEE2E0284DFF5700BAC556 /* TextField+RegistrationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+RegistrationTF.swift"; sourceTree = "<group>"; };
 		67BEE2E2284E03C200BAC556 /* UIColor+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		67C03B73284BA4BC0034720F /* Space Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C03B76284BA4BC0034720F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67C03B78284BA4BC0034720F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		67C03B7A284BA4BC0034720F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		67C03B7D284BA4BC0034720F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67C03B7D284BA4BC0034720F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		67C03B7F284BA4BD0034720F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67C03B82284BA4BD0034720F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67C03B84284BA4BD0034720F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67C03B8B284BAA0C0034720F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		67C03B8D284BAA200034720F /* RegistrationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistrationViewController.storyboard; sourceTree = "<group>"; };
-		67C03B93284BB0D10034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		67C03B93284BB0D10034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainViewController.strings; sourceTree = "<group>"; };
 		67C03B94284BB0D10034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		67C03B95284BB0F80034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		67C03B95284BB0F80034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainViewController.strings; sourceTree = "<group>"; };
 		67C03B96284BB0F80034720F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		67C03B98284BB1010034720F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		67C03B9A284BB1050034720F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -159,6 +167,40 @@
 			path = Play;
 			sourceTree = "<group>";
 		};
+		67BE8D4B2855041100AF3B7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67C03B8B284BAA0C0034720F /* RegistrationViewController.swift */,
+				67C03B8D284BAA200034720F /* RegistrationViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67BE8D4C2855042000AF3B7F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				67BE8D492855040100AF3B7F /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		67BED9912854BD8200D9FE17 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				67BED9922854BE9000D9FE17 /* KeychainManager.swift */,
+				67BE8D472854FD8400AF3B7F /* FirebaseManager.swift */,
+			);
+			path = Memory;
+			sourceTree = "<group>";
+		};
+		67BED9942854C93600D9FE17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67BED9952854C95000D9FE17 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67C03B6A284BA4BB0034720F = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +225,8 @@
 				67C03B76284BA4BC0034720F /* AppDelegate.swift */,
 				67C03B78284BA4BC0034720F /* SceneDelegate.swift */,
 				67C03B99284BB1010034720F /* Localizable.strings */,
+				67BED9942854C93600D9FE17 /* Model */,
+				67BED9912854BD8200D9FE17 /* Memory */,
 				6768D7DE28522EEB004C4790 /* Coordinator */,
 				678DE723284D513800CF3CD3 /* Extensions */,
 				678DE700284D4DE700CF3CD3 /* Resources */,
@@ -198,8 +242,8 @@
 		67C03B8A284BA9DF0034720F /* Registration Screen */ = {
 			isa = PBXGroup;
 			children = (
-				67C03B8B284BAA0C0034720F /* RegistrationViewController.swift */,
-				67C03B8D284BAA200034720F /* RegistrationViewController.storyboard */,
+				67BE8D4B2855041100AF3B7F /* View */,
+				67BE8D4C2855042000AF3B7F /* Presenter */,
 			);
 			path = "Registration Screen";
 			sourceTree = "<group>";
@@ -208,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				67C03B7A284BA4BC0034720F /* MainViewController.swift */,
-				67C03B7C284BA4BC0034720F /* Main.storyboard */,
+				67C03B7C284BA4BC0034720F /* MainViewController.storyboard */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -281,7 +325,7 @@
 				67C03B83284BA4BD0034720F /* LaunchScreen.storyboard in Resources */,
 				67C03B8E284BAA200034720F /* RegistrationViewController.storyboard in Resources */,
 				67C03B80284BA4BD0034720F /* Assets.xcassets in Resources */,
-				67C03B7E284BA4BC0034720F /* Main.storyboard in Resources */,
+				67C03B7E284BA4BC0034720F /* MainViewController.storyboard in Resources */,
 				678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */,
 				67BE1EDF2850FDA90096E845 /* GoogleService-Info.plist in Resources */,
 				678DE72C284D584D00CF3CD3 /* Play-Bold.ttf in Resources */,
@@ -356,13 +400,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67BE8D482854FD8400AF3B7F /* FirebaseManager.swift in Sources */,
 				67BEE2E3284E03C200BAC556 /* UIColor+hex.swift in Sources */,
 				67C03B8C284BAA0C0034720F /* RegistrationViewController.swift in Sources */,
 				6768D7E5285233C0004C4790 /* AppCoordinator.swift in Sources */,
 				6768D7E1285230B3004C4790 /* CoordinatorProtocol.swift in Sources */,
 				678DE725284D51EC00CF3CD3 /* String+Localizable.swift in Sources */,
 				67BEE2E1284DFF5700BAC556 /* TextField+RegistrationTF.swift in Sources */,
+				67BED9932854BE9000D9FE17 /* KeychainManager.swift in Sources */,
+				67BE8D4A2855040100AF3B7F /* Presenter.swift in Sources */,
 				6768D7E328523102004C4790 /* Storyboarded.swift in Sources */,
+				67BED9962854C95000D9FE17 /* User.swift in Sources */,
 				67C03B7B284BA4BC0034720F /* MainViewController.swift in Sources */,
 				67C03B77284BA4BC0034720F /* AppDelegate.swift in Sources */,
 				67C03B79284BA4BC0034720F /* SceneDelegate.swift in Sources */,
@@ -372,14 +420,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		67C03B7C284BA4BC0034720F /* Main.storyboard */ = {
+		67C03B7C284BA4BC0034720F /* MainViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				67C03B7D284BA4BC0034720F /* Base */,
 				67C03B93284BB0D10034720F /* ru */,
 				67C03B95284BB0F80034720F /* es */,
 			);
-			name = Main.storyboard;
+			name = MainViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */ = {

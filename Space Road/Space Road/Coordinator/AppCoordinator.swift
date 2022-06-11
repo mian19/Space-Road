@@ -7,38 +7,29 @@
 
 import Foundation
 import UIKit
-import FirebaseCore
-import FirebaseAuth
+//import FirebaseCore
+//import FirebaseAuth
 
 class AppCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
-    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
     func start() {
-        FirebaseApp.configure()
-        Auth.auth().addStateDidChangeListener{(auth, user ) in
-            if user == nil {
-                self.toRegistrationScreen()
-            } else {
-                self.toMainScreen()
-            }
+        if KeychainManager.get() != nil {
+            toMainScreen()
+        } else {
+            toRegistrationScreen()
         }
     }
-    
     func toRegistrationScreen() {
-        let storyboard = UIStoryboard(name: "RegistrationViewController", bundle: .main)
-        let viewController = storyboard.instantiateInitialViewController() as? RegistrationViewController ?? UIViewController()
+        let viewController = RegistrationViewController.createObject()
+        viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: false)
     }
-    
     func toMainScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewController = storyboard.instantiateInitialViewController() as? MainViewController ?? UIViewController()
+        let viewController = MainViewController.createObject()
+        viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: false)
     }
-    
-    
 }

@@ -4,14 +4,14 @@
 //
 //  Created by Kyzu on 4.06.22.
 // swiftlint:disable line_length
-// // swiftlint:disable all
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+//import FirebaseAuth
+//import FirebaseDatabase
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, RegistrationPresenterDelegate, Storyboarded {
 
+    private let presenter = RegistrationPresenter()
     private var scrollView: UIScrollView!
     private var backImageView: UIImageView!
     private var titleLabel: UILabel!
@@ -22,7 +22,7 @@ class RegistrationViewController: UIViewController {
     private var loginButton: UIButton?
     private var alredyLabel: UILabel!
     private var authorizationButton: UIButton!
-    private var isExpand = false
+    weak var appCoordinator: AppCoordinator?
 
     override func loadView() {
         setView()
@@ -34,13 +34,16 @@ class RegistrationViewController: UIViewController {
         setRegistrateButton()
         setAlredyLabel()
         setAuthorizationButton()
-
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         registerForKeyboardNotifications()
+        setDelegats()
         setElements()
+    }
+    private func setDelegats() {
+        presenter.setViewDelegate(delegate: self)
         nickNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -51,17 +54,16 @@ class RegistrationViewController: UIViewController {
     }
     @objc func keyboardAppear(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-             let keyboardHeight = keyboardSize.height
+            let keyboardHeight = keyboardSize.height
             let offset = view.frame.maxY - registrateButton.frame.maxY
             if keyboardHeight > offset {
-                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - offset)
+                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - offset + 10)
             }
-         }
+        }
     }
     @objc func keyboardDisappear() {
         scrollView.contentOffset = CGPoint.zero
     }
-    
     private func setView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         view = customView
@@ -89,7 +91,6 @@ class RegistrationViewController: UIViewController {
     }
     private func setNickNameTextField() {
         nickNameTextField = UITextField.registrationTF(placeholder: "nickNameTextField.placeholder")
-        nickNameTextField.autocorrectionType = .no
         scrollView.addSubview(nickNameTextField)
     }
     private func setEmailTextField() {
@@ -136,10 +137,12 @@ class RegistrationViewController: UIViewController {
         authorizationButton.clipsToBounds = true
         scrollView.addSubview(authorizationButton)
     }
-    @objc private func focus(){
+    @objc private func focus() {
         scrollView.endEditing(true)
     }
-
+    func toMain() {
+        appCoordinator?.toMainScreen()
+    }
     private func setElements() {
         NSLayoutConstraint.activate([
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -147,8 +150,8 @@ class RegistrationViewController: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            backImageView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            backImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+            backImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             backImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
@@ -180,28 +183,28 @@ class RegistrationViewController: UIViewController {
             authorizationButton.heightAnchor.constraint(equalTo: alredyLabel.heightAnchor)
         ])
     }
-
 }
 
 extension RegistrationViewController: UITextFieldDelegate {
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction((UIAlertAction(title: "ок", style: .cancel)))
+        present(alert, animated: true)
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nick = nickNameTextField.text!
-        let email = emailTextField.text!
-        let pass = passwordTextField.text!
-        
-        if (!nick.isEmpty && !email.isEmpty && !pass.isEmpty) {
-            Auth.auth().createUser(withEmail: email, password: pass) {(result, error) in
-                if error == nil {
-                    if let result = result {
-                        
-                     print(result.user.uid)
-                    let ref = Database.database().reference().child("users")
-                        ref.child(result.user.uid).updateChildValues(["nick": nick, "email": email])
-                }
-                                                                  }
-            }
+        switch textField {
+        case nickNameTextField:
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            presenter.checkUser(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!)
+            passwordTextField.resignFirstResponder()
+        default:
+            passwordTextField.resignFirstResponder()
         }
-        
+
         return true
     }
 }
