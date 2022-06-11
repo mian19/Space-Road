@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import KeychainSwift
 class KeychainManager {
-    private static func save(_ user: User) {
+    static func save(_ user: User) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(user)

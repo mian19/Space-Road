@@ -29,6 +29,8 @@ class RegistrationPresenter {
                     print(result.user.uid)
                     let ref = Database.database().reference().child("users")
                     ref.child(result.user.uid).updateChildValues(["nick": nick, "email": email])
+                    // MARK: - save User to Keychain
+                    KeychainManager.save(User(nick: nick, email: email, password: pass))
                     self.delegate?.toMain()
                 }
             }

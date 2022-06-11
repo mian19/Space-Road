@@ -113,7 +113,11 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         registrateButton.backgroundColor = UIColor.init(hex: "1d54cc")
         registrateButton.layer.cornerRadius = 8
         registrateButton.clipsToBounds = true
+        registrateButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         scrollView.addSubview(registrateButton)
+    }
+    @objc func register() {
+        presenter.checkUser(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!)
     }
     private func setAlredyLabel() {
         alredyLabel = UILabel()
@@ -186,7 +190,6 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
 }
 
 extension RegistrationViewController: UITextFieldDelegate {
-    
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction((UIAlertAction(title: "ок", style: .cancel)))
@@ -199,7 +202,7 @@ extension RegistrationViewController: UITextFieldDelegate {
         case emailTextField:
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            presenter.checkUser(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!)
+            register()
             passwordTextField.resignFirstResponder()
         default:
             passwordTextField.resignFirstResponder()
