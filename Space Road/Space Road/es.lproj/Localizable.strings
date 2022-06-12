@@ -5,6 +5,7 @@
   Created by Kyzu on 4.06.22.
   
 */
+// Registration Screen
 "titleLabel.title" = "Registro";
 "nickNameTextField.placeholder" = "Introduce el apodo";
 "emailTextField.placeholder" = "Correo electrónico";
@@ -12,3 +13,6 @@
 "registrateButton.text" = "Registrarse";
 "alredyLabel.title" = "Ya tienes una cuenta?";
 "authorizationButton.text" = "Iniciar";
+// Authorization Select
+"titleLabelEnter.title" = "Iniciar sesión";
+"alredyLabelEnter.title" = "No tienes una cuenta?";

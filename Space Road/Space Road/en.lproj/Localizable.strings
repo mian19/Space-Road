@@ -5,11 +5,14 @@
   Created by Kyzu on 4.06.22.
   
 */
-
+// Registration Screen
 "titleLabel.title" = "Registration";
 "nickNameTextField.placeholder" = "Enter nickname";
 "emailTextField.placeholder" = "Enter email";
 "passwordTextField.placeholder" = "Enter password";
 "registrateButton.text" = "Sign Up";
-"alredyLabel.title" = "Alredy have account?";
+"alredyLabel.title" = "Alredy have an account?";
 "authorizationButton.text" = "Log in";
+// Authorization Select
+"titleLabelEnter.title" = "Log into";
+"alredyLabelEnter.title" = "Don't have an account?";

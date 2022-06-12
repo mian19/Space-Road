@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-//import FirebaseCore
-//import FirebaseAuth
 
 class AppCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
@@ -16,7 +14,7 @@ class AppCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
     }
     func start() {
-        if KeychainManager.get() != nil {
+        if KeychainManager.shared.get() != nil {
             toMainScreen()
         } else {
             toRegistrationScreen()

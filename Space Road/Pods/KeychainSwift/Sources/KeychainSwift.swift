@@ -1,6 +1,6 @@
 import Security
 import Foundation
-//swiftlint:disable all
+// swiftlint:disable all
 /**
 
 A collection of helper functions for saving text and data in the keychain.

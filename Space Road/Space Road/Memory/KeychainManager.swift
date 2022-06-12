@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 import KeychainSwift
 class KeychainManager {
-    static func save(_ user: User) {
+    static let shared = KeychainManager()
+    func save(_ user: User) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(user)
@@ -18,7 +19,7 @@ class KeychainManager {
             print(error)
         }
     }
-    static func get() -> User? {
+    func get() -> User? {
         do {
             let decoder = JSONDecoder()
             if let data = KeychainSwift().getData("currentUser") {
@@ -29,5 +30,9 @@ class KeychainManager {
             print(error)
         }
         return nil
+    }
+    func delete() {
+        KeychainSwift().delete("currentUser")
+        KeychainSwift().clear()
     }
 }

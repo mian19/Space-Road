@@ -8,9 +8,10 @@
 import Foundation
 import FirebaseAuth
 import FirebaseCore
+import FirebaseDatabase
 
 class FireBaseManager {
-    private static func checkUserAuth() -> Int {
+    static func checkUserAuth() -> Int {
         var checkResult: Int!
         Auth.auth().addStateDidChangeListener { (_, user ) in
             if user == nil {

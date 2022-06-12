@@ -6,11 +6,8 @@
 // swiftlint:disable line_length
 
 import UIKit
-//import FirebaseAuth
-//import FirebaseDatabase
 
 class RegistrationViewController: UIViewController, RegistrationPresenterDelegate, Storyboarded {
-
     private let presenter = RegistrationPresenter()
     private var scrollView: UIScrollView!
     private var backImageView: UIImageView!
@@ -22,7 +19,9 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
     private var loginButton: UIButton?
     private var alredyLabel: UILabel!
     private var authorizationButton: UIButton!
+    private var textFieldHeight: CGFloat = 50
     weak var appCoordinator: AppCoordinator?
+    var isRegister = true
 
     override func loadView() {
         setView()
@@ -117,7 +116,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         scrollView.addSubview(registrateButton)
     }
     @objc func register() {
-        presenter.checkUser(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!)
+        isRegister ? presenter.checkUserRegistration(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!) : presenter.checkUserLogin(email: emailTextField.text!, pass: passwordTextField.text!)
     }
     private func setAlredyLabel() {
         alredyLabel = UILabel()
@@ -134,12 +133,30 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
         authorizationButton.titleLabel?.adjustsFontSizeToFitWidth = true
         authorizationButton.setTitle("authorizationButton.text".localizable(), for: .normal)
-        authorizationButton.titleLabel?.font = UIFont(name: "Play-Bold", size: 28)
+        authorizationButton.titleLabel?.font = UIFont(name: "Play-Bold", size: 24)
         authorizationButton.setTitleColor(UIColor.init(hex: "34cceb"), for: .normal)
         authorizationButton.backgroundColor = .none
         authorizationButton.layer.cornerRadius = 8
         authorizationButton.clipsToBounds = true
+        authorizationButton.addTarget(self, action: #selector(changeToLogin), for: .touchUpInside)
         scrollView.addSubview(authorizationButton)
+    }
+    @objc private func changeToLogin() {
+        if isRegister {
+            nickNameTextField.isHidden = true
+            titleLabel.text = "titleLabelEnter.title".localizable()
+            registrateButton.setTitle("authorizationButton.text".localizable(), for: .normal)
+            authorizationButton.setTitle("registrateButton.text".localizable(), for: .normal)
+            alredyLabel.text = "alredyLabelEnter.title".localizable()
+            isRegister.toggle()
+        } else {
+            nickNameTextField.isHidden = false
+            titleLabel.text = "titleLabel.title".localizable()
+            registrateButton.setTitle("registrateButton.text".localizable(), for: .normal)
+            authorizationButton.setTitle("authorizationButton.text".localizable(), for: .normal)
+            alredyLabel.text = "alredyLabel.title".localizable()
+            isRegister.toggle()
+        }
     }
     @objc private func focus() {
         scrollView.endEditing(true)
@@ -154,23 +171,23 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            backImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
-            backImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            backImageView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            backImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 180),
             nickNameTextField.widthAnchor.constraint(equalTo: titleLabel.widthAnchor),
-            nickNameTextField.heightAnchor.constraint(equalToConstant: 50),
+            nickNameTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             nickNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nickNameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+            nickNameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             emailTextField.widthAnchor.constraint(equalTo: nickNameTextField.widthAnchor),
-            emailTextField.heightAnchor.constraint(equalTo: nickNameTextField.heightAnchor),
+            emailTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             emailTextField.centerXAnchor.constraint(equalTo: nickNameTextField.centerXAnchor),
             emailTextField.topAnchor.constraint(equalTo: nickNameTextField.bottomAnchor, constant: 15),
             passwordTextField.widthAnchor.constraint(equalTo: emailTextField.widthAnchor),
-            passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
+            passwordTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             passwordTextField.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
             registrateButton.widthAnchor.constraint(equalToConstant: 140),
@@ -183,7 +200,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             alredyLabel.topAnchor.constraint(equalTo: registrateButton.bottomAnchor, constant: 30),
             authorizationButton.topAnchor.constraint(equalTo: alredyLabel.topAnchor),
             authorizationButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
-            authorizationButton.leadingAnchor.constraint(equalTo: alredyLabel.trailingAnchor),
+            authorizationButton.leadingAnchor.constraint(equalTo: alredyLabel.trailingAnchor, constant: 2),
             authorizationButton.heightAnchor.constraint(equalTo: alredyLabel.heightAnchor)
         ])
     }

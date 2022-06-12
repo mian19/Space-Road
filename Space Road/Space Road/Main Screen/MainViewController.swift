@@ -19,15 +19,14 @@ class MainViewController: UIViewController, Storyboarded {
         view.addSubview(button)
         button.addTarget(self, action: #selector(logout), for: .touchUpInside)
     }
-    
     @objc func logout() {
         do {
             try Auth.auth().signOut()
-        }catch {
+            KeychainManager.shared.delete()
+            appCoordinator?.toRegistrationScreen()
+        } catch {
             print(error)
         }
-            
-        
     }
 
 }

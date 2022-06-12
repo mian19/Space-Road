@@ -5,10 +5,14 @@
   Created by Kyzu on 4.06.22.
   
 */
+// Registration Screen
 "titleLabel.title" = "Регистрация";
 "nickNameTextField.placeholder" = "Введите ник";
 "emailTextField.placeholder" = "Введите почту";
 "passwordTextField.placeholder" = "Введите пароль";
-"registrateButton.text" = "Зарегистрироваться";
+"registrateButton.text" = "Регистрация";
 "alredyLabel.title" = "Уже есть аккаунт?";
 "authorizationButton.text" = "Войти";
+// Authorization Select
+"titleLabelEnter.title" = "Вход";
+"alredyLabelEnter.title" = "Еще нет аккаунта?";
