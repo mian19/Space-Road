@@ -13,6 +13,8 @@
 "registrateButton.text" = "Registrarse";
 "alredyLabel.title" = "Ya tienes una cuenta?";
 "authorizationButton.text" = "Iniciar";
+"attention.text" = "Atención!";
+"attention.message" = "Rellena todos los campos!";
 // Authorization Select
 "titleLabelEnter.title" = "Iniciar sesión";
 "alredyLabelEnter.title" = "No tienes una cuenta?";

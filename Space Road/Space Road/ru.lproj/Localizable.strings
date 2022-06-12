@@ -13,6 +13,8 @@
 "registrateButton.text" = "Регистрация";
 "alredyLabel.title" = "Уже есть аккаунт?";
 "authorizationButton.text" = "Войти";
+"attention.text" = "Внимание!";
+"attention.message" = "Заполните все поля!";
 // Authorization Select
 "titleLabelEnter.title" = "Вход";
 "alredyLabelEnter.title" = "Еще нет аккаунта?";

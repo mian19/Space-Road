@@ -13,6 +13,9 @@
 "registrateButton.text" = "Sign Up";
 "alredyLabel.title" = "Alredy have an account?";
 "authorizationButton.text" = "Log in";
+"attention.text" = "Attention!";
+"attention.message" = "Fill all fields!";
 // Authorization Select
 "titleLabelEnter.title" = "Log into";
 "alredyLabelEnter.title" = "Don't have an account?";
+
