@@ -29,6 +29,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        self.presenter.setViewDelegate(delegate: self)
         setElements()
     }
     private func setTitle() {
@@ -43,6 +44,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         infoButton = UIButton.systemButton(image: "information")
         pilotButton = UIButton.systemButton(image: "pilot")
         exitButton = UIButton.systemButton(image: "exit")
+        exitButton.addTarget(self, action: #selector(onExitButton), for: .touchUpInside)
         view.addSubview(startButton)
         view.addSubview(settingsButton)
         view.addSubview(recordsButton)
@@ -50,6 +52,9 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         view.addSubview(infoButton)
         view.addSubview(pilotButton)
         view.addSubview(exitButton)
+    }
+    @objc private func onExitButton() {
+        presenter.logout()
     }
     private func setElements() {
         NSLayoutConstraint.activate([

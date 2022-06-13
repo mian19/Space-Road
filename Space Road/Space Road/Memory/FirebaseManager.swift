@@ -24,12 +24,4 @@ class FireBaseManager {
     }
 }
 
-//@objc func logout() {
-//    do {
-//        try Auth.auth().signOut()
-//        KeychainManager.shared.delete()
-//        appCoordinator?.toRegistrationScreen()
-//    } catch {
-//        print(error)
-//    }
-//}
+

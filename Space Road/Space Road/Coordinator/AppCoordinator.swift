@@ -20,14 +20,27 @@ class AppCoordinator: CoordinatorProtocol {
             toRegistrationScreen()
         }
     }
+    private func alredyInStack(checkedViewController: UIViewController) -> Bool {
+        ((self.navigationController.viewControllers.filter {$0 == checkedViewController}).count != 0)
+    }
     func toRegistrationScreen() {
         let viewController = RegistrationViewController.createObject()
-        viewController.appCoordinator = self
-        self.navigationController.pushViewController(viewController, animated: false)
+        if alredyInStack(checkedViewController: viewController) {
+            print("In stack")
+            self.navigationController.popToViewController(viewController, animated: true)
+        } else {
+            print("not in stack")
+            viewController.appCoordinator = self
+            self.navigationController.pushViewController(viewController, animated: false)
+        }
     }
     func toMainScreen() {
         let viewController = MainViewController.createObject()
-        viewController.appCoordinator = self
-        self.navigationController.pushViewController(viewController, animated: false)
+        if alredyInStack(checkedViewController: viewController) {
+            self.navigationController.popToViewController(viewController, animated: true)
+        } else {
+            viewController.appCoordinator = self
+            self.navigationController.pushViewController(viewController, animated: false)
+        }
     }
 }
