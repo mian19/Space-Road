@@ -177,7 +177,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 180),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 100),
             nickNameTextField.widthAnchor.constraint(equalTo: titleLabel.widthAnchor),
             nickNameTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             nickNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),

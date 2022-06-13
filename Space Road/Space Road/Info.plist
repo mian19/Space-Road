@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Play-Bold.ttf</string>
+		<string>kenvector_future.ttf</string>
+		<string>kenvector_future_thin.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

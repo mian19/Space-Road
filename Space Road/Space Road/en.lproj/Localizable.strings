@@ -18,4 +18,6 @@
 // Authorization Select
 "titleLabelEnter.title" = "Log into";
 "alredyLabelEnter.title" = "Don't have an account?";
-
+// Main Screen
+"helloLabel.text" = "Let's\n play!";
+"startButton.text" = "START";
