@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseDatabase
 
 class FireBaseManager {
+    
     static func checkUserAuth() -> Int {
         var checkResult: Int!
         Auth.auth().addStateDidChangeListener { (_, user ) in
@@ -23,5 +24,3 @@ class FireBaseManager {
         return checkResult
     }
 }
-
-

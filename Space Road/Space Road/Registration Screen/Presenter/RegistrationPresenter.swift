@@ -15,7 +15,9 @@ protocol RegistrationPresenterDelegate: AnyObject {
 }
 
 class RegistrationPresenter {
+    
     weak var delegate: RegistrationPresenterDelegate?
+    
     func checkUserRegistration(nick: String, email: String, pass: String) {
         if nick.isEmpty || email.isEmpty || pass.isEmpty {
             self.delegate?.presentAlert(title: "Attention", message: "Fill all fields")
@@ -36,6 +38,7 @@ class RegistrationPresenter {
             }
         }
     }
+    
     func checkUserLogin(email: String, pass: String) {
         if email.isEmpty || pass.isEmpty {
             self.delegate?.presentAlert(title: "attention.text".localizable(), message: "attention.message".localizable())
@@ -62,6 +65,7 @@ class RegistrationPresenter {
             }
         }
     }
+    
     func setViewDelegate(delegate: RegistrationPresenterDelegate) {
         self.delegate = delegate
     }

@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 class AppCoordinator: CoordinatorProtocol {
+    
     var navigationController: UINavigationController
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
     func start() {
         if KeychainManager.shared.get() != nil {
             toMainScreen()
@@ -20,9 +23,11 @@ class AppCoordinator: CoordinatorProtocol {
             toRegistrationScreen()
         }
     }
+    
     private func alredyInStack(checkedViewController: UIViewController) -> Bool {
         ((self.navigationController.viewControllers.filter {$0 == checkedViewController}).count != 0)
     }
+    
     func toRegistrationScreen() {
         let viewController = RegistrationViewController.createObject()
         if alredyInStack(checkedViewController: viewController) {
@@ -34,6 +39,7 @@ class AppCoordinator: CoordinatorProtocol {
             self.navigationController.pushViewController(viewController, animated: false)
         }
     }
+    
     func toMainScreen() {
         let viewController = MainViewController.createObject()
         if alredyInStack(checkedViewController: viewController) {
@@ -42,5 +48,11 @@ class AppCoordinator: CoordinatorProtocol {
             viewController.appCoordinator = self
             self.navigationController.pushViewController(viewController, animated: false)
         }
+    }
+    
+    func toShuttleScreen() {
+        let viewController = ShuttleViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    
     convenience init?(hex: String?) {
         let input: String! = (hex ?? "")
             .replacingOccurrences(of: "#", with: "")
@@ -17,6 +18,7 @@ extension UIColor {
         var red: CGFloat = 0
         var blue: CGFloat = 0
         var green: CGFloat = 0
+        
         switch input.count {
         case 3 /* #RGB */:
             red = Self.colorComponent(from: input, start: 0, length: 1)
@@ -41,6 +43,7 @@ extension UIColor {
         }
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
+    
     static func colorComponent(from string: String!, start: Int, length: Int) -> CGFloat {
         let substring = (string as NSString)
             .substring(with: NSRange(location: start, length: length))

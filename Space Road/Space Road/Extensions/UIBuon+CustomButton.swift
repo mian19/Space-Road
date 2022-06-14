@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
+    
     static func systemButton(image: String) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -16,6 +17,7 @@ extension UIButton {
         button.setBackgroundImage(backImage, for: .normal)
         return button
     }
+    
     static func withTextButton(with text: String, size: CGFloat) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

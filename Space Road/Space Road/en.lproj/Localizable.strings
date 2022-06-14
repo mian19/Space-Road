@@ -21,3 +21,5 @@
 // Main Screen
 "helloLabel.text" = "Let's\n play!";
 "startButton.text" = "START";
+// Shuttle Screen
+"labelSelect.text" = "choose your\n shuttle!";

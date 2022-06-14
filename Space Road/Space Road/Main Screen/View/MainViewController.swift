@@ -19,6 +19,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     private var pilotButton: UIButton!
     private let presenter = MainPresenter()
     weak var appCoordinator: AppCoordinator?
+    
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         customView.backgroundColor = UIColor(patternImage: UIImage(named: "mainScreen")!)
@@ -26,21 +27,26 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         setTitle()
         setButtons()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.presenter.setViewDelegate(delegate: self)
         setElements()
     }
+    
     private func setTitle() {
         helloLabel = UILabel.infoLabel(text: "helloLabel.text".localizable(), size: 38, lines: 2)
         view.addSubview(helloLabel)
     }
+    
     private func setButtons() {
         startButton = UIButton.withTextButton(with: "startButton.text".localizable(), size: 38)
         settingsButton = UIButton.systemButton(image: "gear")
         recordsButton = UIButton.systemButton(image: "leaderboardsComplex")
         shuttleButton = UIButton.systemButton(image: "choseShip")
+        shuttleButton.addTarget(self, action: #selector(onShuttleButton), for: .touchUpInside)
         infoButton = UIButton.systemButton(image: "information")
         pilotButton = UIButton.systemButton(image: "pilot")
         exitButton = UIButton.systemButton(image: "exit")
@@ -53,9 +59,15 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         view.addSubview(pilotButton)
         view.addSubview(exitButton)
     }
+    
+    @objc private func onShuttleButton() {
+        appCoordinator?.toShuttleScreen()
+    }
+    
     @objc private func onExitButton() {
         presenter.logout()
     }
+    
     private func setElements() {
         NSLayoutConstraint.activate([
             helloLabel.heightAnchor.constraint(equalToConstant: 100),
@@ -78,18 +90,18 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
             settingsButton.widthAnchor.constraint(equalToConstant: 80),
             settingsButton.topAnchor.constraint(equalTo: recordsButton.bottomAnchor, constant: 50),
             settingsButton.trailingAnchor.constraint(equalTo: startButton.trailingAnchor),
-            infoButton.heightAnchor.constraint(equalToConstant: 80),
-            infoButton.widthAnchor.constraint(equalToConstant: 80),
-            infoButton.topAnchor.constraint(equalTo: shuttleButton.bottomAnchor, constant: 50),
-            infoButton.leadingAnchor.constraint(equalTo: startButton.leadingAnchor),
             pilotButton.heightAnchor.constraint(equalToConstant: 80),
             pilotButton.widthAnchor.constraint(equalToConstant: 80),
-            pilotButton.leadingAnchor.constraint(equalTo: infoButton.leadingAnchor),
-            pilotButton.topAnchor.constraint(equalTo: infoButton.bottomAnchor, constant: 50),
+            pilotButton.topAnchor.constraint(equalTo: shuttleButton.bottomAnchor, constant: 50),
+            pilotButton.leadingAnchor.constraint(equalTo: startButton.leadingAnchor),
+            infoButton.heightAnchor.constraint(equalToConstant: 80),
+            infoButton.widthAnchor.constraint(equalToConstant: 80),
+            infoButton.leadingAnchor.constraint(equalTo: pilotButton.leadingAnchor),
+            infoButton.topAnchor.constraint(equalTo: pilotButton.bottomAnchor, constant: 50),
             exitButton.heightAnchor.constraint(equalToConstant: 80),
             exitButton.widthAnchor.constraint(equalToConstant: 80),
-            exitButton.leadingAnchor.constraint(equalTo: pilotButton.trailingAnchor, constant: 50),
-            exitButton.topAnchor.constraint(equalTo: infoButton.bottomAnchor, constant: 50)
+            exitButton.leadingAnchor.constraint(equalTo: infoButton.trailingAnchor, constant: 50),
+            exitButton.topAnchor.constraint(equalTo: pilotButton.bottomAnchor, constant: 50)
         ])
     }
 }

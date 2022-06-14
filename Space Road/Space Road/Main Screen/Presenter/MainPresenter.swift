@@ -13,6 +13,7 @@ protocol MainPresenterDelegate: AnyObject {
 }
 
 class MainPresenter {
+    
     weak var delegate: MainPresenterDelegate?
     func logout() {
         do {
@@ -23,6 +24,7 @@ class MainPresenter {
             print(error)
         }
     }
+    
     func setViewDelegate(delegate: MainPresenterDelegate) {
         self.delegate = delegate
     }

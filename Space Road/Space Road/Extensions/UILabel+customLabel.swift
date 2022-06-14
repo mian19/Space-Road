@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UILabel {
+    
     static func infoLabel(text: String, size: Int, lines: Int) -> UILabel {
         let label = UILabel()
         label.font = UIFont(name: "KenVector Future Regular", size: CGFloat(size))

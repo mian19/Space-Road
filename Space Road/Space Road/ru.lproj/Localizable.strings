@@ -21,3 +21,5 @@
 // Main Screen
 "helloLabel.text" = "Сыграем!";
 "startButton.text" = "СТАРТ";
+// Shuttle Screen
+"labelSelect.text" = "выбери свой\n корабль!";

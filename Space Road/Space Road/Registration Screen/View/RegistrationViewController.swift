@@ -8,6 +8,7 @@
 import UIKit
 
 class RegistrationViewController: UIViewController, RegistrationPresenterDelegate, Storyboarded {
+    
     private let presenter = RegistrationPresenter()
     private var scrollView: UIScrollView!
     private var backImageView: UIImageView!
@@ -34,6 +35,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         setAlredyLabel()
         setAuthorizationButton()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -47,10 +49,12 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
+    
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @objc func keyboardAppear(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
@@ -60,9 +64,11 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             }
         }
     }
+    
     @objc func keyboardDisappear() {
         scrollView.contentOffset = CGPoint.zero
     }
+    
     private func setView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         view = customView
@@ -71,6 +77,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focus)))
         view.addSubview(scrollView)
     }
+    
     private func setBackgroundImage() {
         backImageView = UIImageView()
         backImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,6 +85,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         backImageView.contentMode = .scaleAspectFill
         scrollView.addSubview(backImageView)
     }
+    
     private func setTitleLabel() {
         titleLabel = UILabel()
         titleLabel.text = "titleLabel.title".localizable()
@@ -88,20 +96,24 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         titleLabel.font = UIFont(name: "Play-Bold", size: 105)
         scrollView.addSubview(titleLabel)
     }
+    
     private func setNickNameTextField() {
         nickNameTextField = UITextField.registrationTF(placeholder: "nickNameTextField.placeholder")
         scrollView.addSubview(nickNameTextField)
     }
+    
     private func setEmailTextField() {
         emailTextField = UITextField.registrationTF(placeholder: "emailTextField.placeholder")
         emailTextField.keyboardType = .emailAddress
         emailTextField.textContentType = .emailAddress
         scrollView.addSubview(emailTextField)
     }
+    
     private func setPasswordTextField() {
         passwordTextField = UITextField.registrationTF(placeholder: "passwordTextField.placeholder")
         scrollView.addSubview(passwordTextField)
     }
+    
     private func setRegistrateButton() {
         registrateButton = UIButton()
         registrateButton.translatesAutoresizingMaskIntoConstraints = false
@@ -115,9 +127,11 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         registrateButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         scrollView.addSubview(registrateButton)
     }
+    
     @objc func register() {
         isRegister ? presenter.checkUserRegistration(nick: nickNameTextField.text!, email: emailTextField.text!, pass: passwordTextField.text!) : presenter.checkUserLogin(email: emailTextField.text!, pass: passwordTextField.text!)
     }
+    
     private func setAlredyLabel() {
         alredyLabel = UILabel()
         alredyLabel.text = "alredyLabel.title".localizable()
@@ -128,6 +142,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         alredyLabel.font = UIFont(name: "Play-Bold", size: 28)
         scrollView.addSubview(alredyLabel)
     }
+    
     private func setAuthorizationButton() {
         authorizationButton = UIButton()
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
@@ -141,6 +156,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
         authorizationButton.addTarget(self, action: #selector(changeToLogin), for: .touchUpInside)
         scrollView.addSubview(authorizationButton)
     }
+    
     @objc private func changeToLogin() {
         if isRegister {
             nickNameTextField.isHidden = true
@@ -158,12 +174,15 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             isRegister.toggle()
         }
     }
+    
     @objc private func focus() {
         scrollView.endEditing(true)
     }
+    
     func toMain() {
         appCoordinator?.toMainScreen()
     }
+    
     private func setElements() {
         NSLayoutConstraint.activate([
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -207,11 +226,13 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
 }
 
 extension RegistrationViewController: UITextFieldDelegate {
+    
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction((UIAlertAction(title: "ок", style: .cancel)))
         present(alert, animated: true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case nickNameTextField:

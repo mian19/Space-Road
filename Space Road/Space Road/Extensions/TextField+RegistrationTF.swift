@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITextField {
+    
     static func registrationTF(placeholder: String) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
