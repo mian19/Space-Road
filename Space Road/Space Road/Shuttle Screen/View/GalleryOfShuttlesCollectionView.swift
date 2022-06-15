@@ -7,13 +7,12 @@
 
 import UIKit
 
-class GalleryOfShuttlesCollectionView: UICollectionView, UICollectionViewDelegate,  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    var selectedIndexPath: IndexPath! = [0, 6]
+class GalleryOfShuttlesCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var selectedIndexPath: IndexPath! = [0, UserDefaultsManager().getSettings().indexPathRowForShuttle]
     var shuttleColorIndex = 1
     private var nearestCell: UICollectionViewCell!
     private var changeColorButton: UIButton!
-     let shuttlesSkinDictionary: [Int: [String]] = [ 0 : ["1_1", "1_2", "1_3", "1_4"], 1 : ["2_1", "2_2", "2_3", "2_4"], 2 : ["3_1", "3_2", "3_3", "3_4"], 3 : ["4_1", "4_2", "4_3", "4_4"], 4 : ["5_1", "5_2", "5_3", "5_4"], 5 : ["6_1", "6_2", "6_3", "6_4"], 6 : ["7_1", "7_2", "7_3", "7_4"], 7 : ["8_1", "8_2", "8_3", "8_4"], 8 : ["9_1", "9_2", "9_3", "9_4"]]
+     let shuttlesSkinDictionary: [Int: [String]] = [ 0: ["1_1", "1_2", "1_3", "1_4"], 1: ["2_1", "2_2", "2_3", "2_4"], 2: ["3_1", "3_2", "3_3", "3_4"], 3: ["4_1", "4_2", "4_3", "4_4"], 4: ["5_1", "5_2", "5_3", "5_4"], 5: ["6_1", "6_2", "6_3", "6_4"], 6: ["7_1", "7_2", "7_3", "7_4"], 7: ["8_1", "8_2", "8_3", "8_4"], 8: ["9_1", "9_2", "9_3", "9_4"] ]
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -42,6 +41,7 @@ class GalleryOfShuttlesCollectionView: UICollectionView, UICollectionViewDelegat
         guard let cell = dequeueReusableCell(withReuseIdentifier: GalleryOfShuttleCollectionViewCell.reuseID, for: indexPath) as? GalleryOfShuttleCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         cell.currentShuttleImageView.image = UIImage(named: "\(shuttlesSkinDictionary[indexPath.row]![0])")
         
         return cell

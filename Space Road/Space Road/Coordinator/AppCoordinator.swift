@@ -31,12 +31,10 @@ class AppCoordinator: CoordinatorProtocol {
     func toRegistrationScreen() {
         let viewController = RegistrationViewController.createObject()
         if alredyInStack(checkedViewController: viewController) {
-            print("In stack")
             self.navigationController.popToViewController(viewController, animated: true)
         } else {
-            print("not in stack")
             viewController.appCoordinator = self
-            self.navigationController.pushViewController(viewController, animated: false)
+            self.navigationController.pushViewController(viewController, animated: true)
         }
     }
     
@@ -46,8 +44,12 @@ class AppCoordinator: CoordinatorProtocol {
             self.navigationController.popToViewController(viewController, animated: true)
         } else {
             viewController.appCoordinator = self
-            self.navigationController.pushViewController(viewController, animated: false)
+            self.navigationController.pushViewController(viewController, animated: true)
         }
+    }
+    
+    func back() {
+        self.navigationController.popViewController(animated: true)
     }
     
     func toShuttleScreen() {

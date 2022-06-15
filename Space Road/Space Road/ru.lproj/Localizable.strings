@@ -23,3 +23,5 @@
 "startButton.text" = "СТАРТ";
 // Shuttle Screen
 "labelSelect.text" = "выбери свой\n корабль!";
+"selectButton.text" = "выбор";
+"changeColorButton.text" = "перекрасить";

@@ -23,3 +23,5 @@
 "startButton.text" = "COMIENZO";
 // Shuttle Screen
 "labelSelect.text" = "elige tu\n lanzadera!";
+"selectButton.text" = "seleccione";
+"changeColorButton.text" = "repintar";

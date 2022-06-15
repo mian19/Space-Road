@@ -23,3 +23,5 @@
 "startButton.text" = "START";
 // Shuttle Screen
 "labelSelect.text" = "choose your\n shuttle!";
+"selectButton.text" = "select";
+"changeColorButton.text" = "repaint";
