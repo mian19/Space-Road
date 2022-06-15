@@ -101,10 +101,10 @@ class GalleryOfShuttlesCollectionView: UICollectionView, UICollectionViewDelegat
             return
         }
 
-        if shuttleColorIndex < 3 {
-            cell.currentShuttleImageView.image = UIImage(named: "\(shuttlesSkinDictionary[selectedIndexPath.row]![shuttleColorIndex+1])")
+        if shuttleColorIndex < 5 {
+            cell.currentShuttleImageView.image = UIImage(named: "\(shuttlesSkinDictionary[selectedIndexPath.row]![shuttleColorIndex])")
             shuttleColorIndex += 1
-            if shuttleColorIndex == 3 {
+            if shuttleColorIndex == 4 {
                 shuttleColorIndex = 0
             }
         }

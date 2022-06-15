@@ -22,7 +22,6 @@ class ShuttlePresenter {
         settings.indexPathRowForShuttle = row
         settings.shuttleImageIndex = imageIndex
         UserDefaultsManager().saveSettings(settings: settings)
-        print(row, imageIndex)
         back()
     }
     

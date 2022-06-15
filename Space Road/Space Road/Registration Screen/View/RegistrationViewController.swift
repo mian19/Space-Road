@@ -3,7 +3,6 @@
 //  Space Road
 //
 //  Created by Kyzu on 4.06.22.
-// swiftlint:disable line_length
 
 import UIKit
 
@@ -26,7 +25,7 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
 
     override func loadView() {
         setView()
-        setBackgroundImage()
+       // setBackgroundImage()
         setTitleLabel()
         setNickNameTextField()
         setEmailTextField()
@@ -51,39 +50,42 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
     }
     
     private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc func keyboardAppear(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let keyboardHeight = keyboardSize.height
-            let offset = view.frame.maxY - registrateButton.frame.maxY
-            if keyboardHeight > offset {
-                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight - offset + 10)
-            }
-        }
+    @objc func adjustForKeyboard(_ notification: Notification) {
+        
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+         let keyboardScreenEndFrame = keyboardValue.cgRectValue
+         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+         if notification.name == UIResponder.keyboardWillHideNotification {
+             scrollView.contentOffset = .zero
+         } else {
+             let offset = view.frame.maxY - registrateButton.frame.maxY
+             if keyboardViewEndFrame.height > offset {
+             self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardViewEndFrame.height - offset)
+             }
+         }
+
+         scrollView.scrollIndicatorInsets = scrollView.contentInset
+
     }
     
     @objc func keyboardDisappear() {
-        scrollView.contentOffset = CGPoint.zero
+        scrollView.contentOffset = CGPoint(x: 0, y: 10)
     }
     
     private func setView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         view = customView
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "registrationScreen")!)
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focus)))
         view.addSubview(scrollView)
-    }
-    
-    private func setBackgroundImage() {
-        backImageView = UIImageView()
-        backImageView.translatesAutoresizingMaskIntoConstraints = false
-        backImageView.image = UIImage(named: "registrationScreen")
-        backImageView.contentMode = .scaleAspectFill
-        scrollView.addSubview(backImageView)
     }
     
     private func setTitleLabel() {
@@ -189,10 +191,6 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
             scrollView.heightAnchor.constraint(equalTo: view.heightAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            backImageView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            backImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

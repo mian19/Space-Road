@@ -8,7 +8,7 @@
 import UIKit
 
 class ShuttleViewController: UIViewController, Storyboarded, ShuttlePresenterDelegate {
-
+    
     private var labelSelect: UILabel!
     private var homeButton: UIButton!
     private var selectButton: UIButton!
@@ -58,7 +58,10 @@ class ShuttleViewController: UIViewController, Storyboarded, ShuttlePresenterDel
     }
     
     @objc func onSelectButton() {
-        presenter.saveAndBack(row: galleryOfShuttles.selectedIndexPath.row, imageIndex: galleryOfShuttles.shuttleColorIndex)
+        if !galleryOfShuttles.isDragging {
+            presenter.saveAndBack(row: galleryOfShuttles.selectedIndexPath.row, imageIndex: galleryOfShuttles.shuttleColorIndex)
+            
+        }
     }
     
     @objc func onChangeColorButton() {
@@ -95,6 +98,6 @@ class ShuttleViewController: UIViewController, Storyboarded, ShuttlePresenterDel
             homeButton.widthAnchor.constraint(equalToConstant: 80),
             view.bottomAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 30),
             homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
+        ])
     }
 }
