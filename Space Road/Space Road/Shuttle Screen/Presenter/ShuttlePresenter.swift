@@ -21,6 +21,7 @@ class ShuttlePresenter {
         var settings = UserDefaultsManager().getSettings()
         settings.indexPathRowForShuttle = row
         settings.shuttleImageIndex = imageIndex
+        settings.difficulty = "hard"
         UserDefaultsManager().saveSettings(settings: settings)
         back()
     }

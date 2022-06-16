@@ -60,22 +60,17 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
 
          let keyboardScreenEndFrame = keyboardValue.cgRectValue
          let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-
+        let offset = view.frame.maxY - registrateButton.frame.maxY
          if notification.name == UIResponder.keyboardWillHideNotification {
-             scrollView.contentOffset = .zero
+             scrollView.contentOffset = CGPoint(x: 0, y: 0)
          } else {
-             let offset = view.frame.maxY - registrateButton.frame.maxY
-             if keyboardViewEndFrame.height > offset {
-             self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardViewEndFrame.height - offset)
-             }
+             
+             self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardViewEndFrame.height - offset + 10)
+             
          }
 
          scrollView.scrollIndicatorInsets = scrollView.contentInset
 
-    }
-    
-    @objc func keyboardDisappear() {
-        scrollView.contentOffset = CGPoint(x: 0, y: 10)
     }
     
     private func setView() {

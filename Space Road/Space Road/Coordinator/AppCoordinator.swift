@@ -52,6 +52,12 @@ class AppCoordinator: CoordinatorProtocol {
         self.navigationController.popViewController(animated: true)
     }
     
+    func toGameScreen() {
+        let viewController = GameViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
     func toShuttleScreen() {
         let viewController = ShuttleViewController.createObject()
         viewController.appCoordinator = self

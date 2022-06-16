@@ -21,4 +21,13 @@ extension UILabel {
         label.text = text
         return label
     }
+    
+    static func scoreLabel() -> UILabel {
+        let label = UILabel()
+        label.font = UIFont(name: "Play-Bold", size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.text = "Score:0"
+        return label
+    }
 }

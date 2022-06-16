@@ -43,6 +43,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     
     private func setButtons() {
         startButton = UIButton.withTextButton(with: "startButton.text".localizable(), size: 38)
+        startButton.addTarget(self, action: #selector(onStartButton), for: .touchUpInside)
         settingsButton = UIButton.systemButton(image: "gear")
         recordsButton = UIButton.systemButton(image: "leaderboardsComplex")
         shuttleButton = UIButton.systemButton(image: "choseShip")
@@ -58,6 +59,10 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         view.addSubview(infoButton)
         view.addSubview(pilotButton)
         view.addSubview(exitButton)
+    }
+    
+    @objc private func onStartButton() {
+        appCoordinator?.toGameScreen()
     }
     
     @objc private func onShuttleButton() {
