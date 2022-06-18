@@ -36,7 +36,7 @@ class Target: UIImageView {
     }
     
     static func generateTargets(targetSize: CGSize, targetPoints: [CGPoint]) -> [Target] {
-        let points = targetPoints.shuffled().suffix(Int.random(in: 1...3))
+        let points = targetPoints.shuffled().suffix(Int.random(in: 1...2))
         var targets: [Target] = []
         
         for point in points {

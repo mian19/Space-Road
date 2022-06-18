@@ -11,8 +11,8 @@ import UIKit
 class Shuttle: UIImageView {
     var movingAnimation = UIViewPropertyAnimator()
     var currentSkin: String {
-        var settings = UserDefaultsManager().getSettings()
-        var str = "\(settings.indexPathRowForShuttle+1)_\(settings.shuttleImageIndex)"
+        let settings = UserDefaultsManager().getSettings()
+        let str = "\(settings.indexPathRowForShuttle+1)_\(settings.shuttleImageIndex)"
         return str
     }
     
@@ -34,7 +34,7 @@ class Shuttle: UIImageView {
     
     func movingShuttle(direction: CGFloat) {
         let step = self.frame.width
-        movingAnimation = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {self.frame.origin.x += direction * step})
+        movingAnimation = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: {self.frame.origin.x += direction * step})
         movingAnimation.startAnimation()
     }
 }

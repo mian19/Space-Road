@@ -25,3 +25,5 @@
 "labelSelect.text" = "choose your\n shuttle!";
 "selectButton.text" = "select";
 "changeColorButton.text" = "repaint";
+// Game Screen
+"score.text" = "Score";

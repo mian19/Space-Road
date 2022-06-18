@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded {
 
@@ -15,11 +16,13 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     private var animationForTarget = UIViewPropertyAnimator()
     private var labelScore: UILabel!
     private var pauseButton: UIButton!
+    private var pauseView: PauseUIView!
     private var shuttle: Shuttle!
     private var targets: [Target] = []
     private var targetOrigins: [CGPoint] = []
     private var presenter = GamePresenter()
     private var timerForPutTargers = Timer()
+    private var timerForCheckIntersectionEnemyAndShuttle = Timer()
     private var game = Game()
     weak var appCoordinator: AppCoordinator?
 
@@ -32,12 +35,14 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setViewDelegate(delegate: self)
         changeBackgroundImage(duration: game.gameSpeed)
         setShuttle()
         movingShuttle()
         setElements()
         generateTargetsOrigin(size: shuttle.frame.size)
         restartTimer()
+        
     }
     
     // MARK: - work with background
@@ -55,6 +60,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     private func setTopPanel() {
         labelScore = UILabel.scoreLabel()
         pauseButton = UIButton.systemButton(image: "pause")
+        pauseButton.addTarget(self, action: #selector(onPauseButton), for: .touchUpInside)
         view.addSubview(labelScore)
         view.addSubview(pauseButton)
     }
@@ -101,12 +107,11 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     
     // MARK: - work with targets
     func restartTimer() {
-        print(game.gameSpeed)
-        let randomNum = Double.random(in: self.game.gameSpeed-0.5..<self.game.gameSpeed)
+        let randomNum = Double.random(in: self.game.gameSpeed-1..<self.game.gameSpeed-0.5)
         timerForPutTargers = Timer.scheduledTimer(withTimeInterval: TimeInterval(randomNum), repeats: false) { _ in
             self.game.increaseSpeed()
             self.moveTarget(duration: self.game.gameSpeed)
-            
+            self.checkEndGame()
             self.restartTimer()
         }
     }
@@ -134,17 +139,111 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         })
         animationForTarget.startAnimation()
         animationForTarget.addCompletion({_ in
-            for target in newTargets {
-                if target.frame.origin.y >= self.viewForBackground.frame.maxY {
+            for target in newTargets where target.frame.origin.y >= self.viewForBackground.frame.maxY {
                     target.removeFromSuperview()
-                }
             }
             self.game.currentScore += 1
             print(self.game.currentScore)
-            self.labelScore.text = "Score: \(self.game.currentScore)"
+            self.labelScore.text = "score.text".localizable() + ": \(self.game.currentScore)"
         })
     }
     
+    // MARK: - check end game
+    private func checkEndGame() {
+        self.timerForCheckIntersectionEnemyAndShuttle = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
+            var tempFrameTargets: [CGRect] = []
+            for target in self.targets {
+                tempFrameTargets.append(target.layer.presentation()?.frame ?? CGRect(x: 0, y: 0, width: 0, height: 0) )
+            }
+            
+            let tempFrameShuttle = self.shuttle.layer.presentation()!.frame
+            
+            for tempFrameTarget in tempFrameTargets {
+                if tempFrameShuttle.intersects(tempFrameTarget) {
+                    self.animationForTarget.stopAnimation(true)
+                    self.viewForBackground.isUserInteractionEnabled = false
+                    self.pauseButton.isUserInteractionEnabled = false
+                    self.shuttle.movingAnimation.stopAnimation(true)
+                    self.timerForPutTargers.invalidate()
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    self.animationForBackground.stopAnimation(true)
+                    timer.invalidate()
+
+                    self.showCrash()
+                }
+            }
+        }
+    }
+    
+    private func showCrash() {
+        self.shuttle?.image = UIImage(named: "laserYellow_burst")
+        let anima = UIViewPropertyAnimator(duration: 1, curve: .linear, animations: {
+            self.shuttle.transform = CGAffineTransform(scaleX: 5, y: 5)
+        })
+        anima.startAnimation()
+        anima.addCompletion {_ in
+            
+        }
+    }
+    
+    // MARK: - Pause button
+    @objc func onPauseButton() {
+        let pausedTime: CFTimeInterval = view.layer.convertTime(CACurrentMediaTime(), from: nil)
+        view.layer.speed = 0.0
+        view.layer.timeOffset = pausedTime
+        timerForPutTargers.invalidate()
+        self.timerForCheckIntersectionEnemyAndShuttle.invalidate()
+        showPauseView()
+        pauseButton.isHidden = true
+    }
+
+    @objc func resumeGame() {
+        let pausedTime: CFTimeInterval = view.layer.timeOffset
+        view.layer.speed = 1.0
+        view.layer.timeOffset = 0.0
+        view.layer.beginTime = 0.0
+        let timeSincePause: CFTimeInterval = view.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        view.layer.beginTime = timeSincePause
+        restartTimer()
+        pauseButton.isHidden = false
+        pauseView.removeFromSuperview()
+    }
+    
+    // MARK: - pauseView
+    func showPauseView() {
+        setPauseView()
+        let playButton = UIButton.systemButton(image: "playW")
+        let homeButton = UIButton.systemButton(image: "home")
+        
+        pauseView.addSubview(playButton)
+        pauseView.addSubview(homeButton)
+        
+        playButton.addTarget(self, action: #selector(resumeGame), for: .touchUpInside)
+        homeButton.addTarget(self, action: #selector(onHomeButton), for: .touchUpInside)
+        playButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        playButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        playButton.centerXAnchor.constraint(equalTo: pauseView.centerXAnchor).isActive = true
+        playButton.topAnchor.constraint(equalTo: pauseView.topAnchor, constant: 5).isActive = true
+        homeButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        homeButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        homeButton.centerXAnchor.constraint(equalTo: pauseView.centerXAnchor).isActive = true
+        homeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 5).isActive = true
+    }
+    
+    private func setPauseView() {
+        pauseView = PauseUIView()
+        viewForBackground.addSubview(pauseView)
+        pauseView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        pauseView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        pauseView.centerXAnchor.constraint(equalTo: viewForBackground.centerXAnchor).isActive = true
+        pauseView.centerYAnchor.constraint(equalTo: viewForBackground.centerYAnchor).isActive = true
+    }
+    
+    @objc func onHomeButton() {
+        self.appCoordinator?.back()
+    }
+    
+    // MARK: - top panel constraints
     private func setElements() {
         NSLayoutConstraint.activate([
             

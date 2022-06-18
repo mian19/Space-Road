@@ -25,3 +25,5 @@
 "labelSelect.text" = "выбери свой\n корабль!";
 "selectButton.text" = "выбор";
 "changeColorButton.text" = "перекрасить";
+// Game Screen
+"score.text" = "Очки";

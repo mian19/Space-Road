@@ -34,9 +34,8 @@ class Game: GameProtocol {
     
     func increaseSpeed() {
         
-        if currentScore > 0 && currentScore % 23 == 0 && gameSpeed >= 1 {
-            gameSpeed -= 0.15
-            print(gameSpeed)
+        if currentScore > 0 && currentScore % 23 == 0 && gameSpeed >= 1.2 {
+            gameSpeed -= 0.1
         }
     }
 

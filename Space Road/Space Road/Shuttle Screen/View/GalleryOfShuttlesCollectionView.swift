@@ -100,14 +100,12 @@ class GalleryOfShuttlesCollectionView: UICollectionView, UICollectionViewDelegat
         guard let cell = cellForItem(at: selectedIndexPath) as? GalleryOfShuttleCollectionViewCell else {
             return
         }
-
-        if shuttleColorIndex < 5 {
+        if shuttleColorIndex == 4 {
+            shuttleColorIndex = 0
+        }
+        if shuttleColorIndex <= 4 {
             cell.currentShuttleImageView.image = UIImage(named: "\(shuttlesSkinDictionary[selectedIndexPath.row]![shuttleColorIndex])")
             shuttleColorIndex += 1
-            if shuttleColorIndex == 4 {
-                shuttleColorIndex = 0
-            }
         }
-
     }
 }

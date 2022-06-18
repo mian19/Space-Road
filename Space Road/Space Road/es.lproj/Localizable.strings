@@ -25,3 +25,5 @@
 "labelSelect.text" = "elige tu\n lanzadera!";
 "selectButton.text" = "seleccione";
 "changeColorButton.text" = "repintar";
+// Game Screen
+"score.text" = "Puntaje";
