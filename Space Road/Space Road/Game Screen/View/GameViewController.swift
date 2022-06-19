@@ -182,8 +182,20 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         })
         anima.startAnimation()
         anima.addCompletion {_ in
-            
+            self.showResultView()
         }
+    }
+    
+    // MARK: - Show Result
+    
+    private func showResultView() {
+        let resultView = ResultView(frame: CGRect(x: 0, y: 0, width: 290, height: 255))
+        viewForBackground.addSubview(resultView)
+        resultView.widthAnchor.constraint(equalToConstant: 290).isActive = true
+        resultView.heightAnchor.constraint(equalToConstant: 255).isActive = true
+        resultView.centerXAnchor.constraint(equalTo: viewForBackground.centerXAnchor).isActive = true
+        resultView.centerYAnchor.constraint(equalTo: viewForBackground.centerYAnchor).isActive = true
+        
     }
     
     // MARK: - Pause button

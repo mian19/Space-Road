@@ -32,6 +32,8 @@
 		678DE72A284D584D00CF3CD3 /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE727284D584D00CF3CD3 /* Play-Regular.ttf */; };
 		678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 678DE728284D584D00CF3CD3 /* OFL.txt */; };
 		678DE72C284D584D00CF3CD3 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678DE729284D584D00CF3CD3 /* Play-Bold.ttf */; };
+		67965744285FAB6B0022E951 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67965743285FAB6B0022E951 /* ResultView.swift */; };
+		67965746285FAB920022E951 /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67965745285FAB920022E951 /* ResultView.xib */; };
 		67BE1EDF2850FDA90096E845 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67BE1EDE2850FDA80096E845 /* GoogleService-Info.plist */; };
 		67BE8D482854FD8400AF3B7F /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE8D472854FD8400AF3B7F /* FirebaseManager.swift */; };
 		67BE8D4A2855040100AF3B7F /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE8D492855040100AF3B7F /* RegistrationPresenter.swift */; };
@@ -80,6 +82,8 @@
 		678DE727284D584D00CF3CD3 /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		678DE728284D584D00CF3CD3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		678DE729284D584D00CF3CD3 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
+		67965743285FAB6B0022E951 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		67965745285FAB920022E951 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
 		67BE1EDE2850FDA80096E845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67BE8D472854FD8400AF3B7F /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		67BE8D492855040100AF3B7F /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		67786788285B605800450D83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				67965743285FAB6B0022E951 /* ResultView.swift */,
+				67965745285FAB920022E951 /* ResultView.xib */,
 				6776CBB2285CE03C00C15608 /* PauseUIView.swift */,
 				67EF2616285A7B0700944432 /* GameViewController.swift */,
 				67EF2618285A7B3C00944432 /* GameViewController.storyboard */,
@@ -462,6 +468,7 @@
 				678DE72A284D584D00CF3CD3 /* Play-Regular.ttf in Resources */,
 				67EF2619285A7B3C00944432 /* GameViewController.storyboard in Resources */,
 				6766A4DB2858853800F901D6 /* ShuttleViewController.storyboard in Resources */,
+				67965746285FAB920022E951 /* ResultView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +543,7 @@
 				67BE8D482854FD8400AF3B7F /* FirebaseManager.swift in Sources */,
 				67BEE2E3284E03C200BAC556 /* UIColor+hex.swift in Sources */,
 				6778678F285B8C5D00450D83 /* Target.swift in Sources */,
+				67965744285FAB6B0022E951 /* ResultView.swift in Sources */,
 				67786792285BC98200450D83 /* GamePresenter.swift in Sources */,
 				67C03B8C284BAA0C0034720F /* RegistrationViewController.swift in Sources */,
 				67EF2617285A7B0700944432 /* GameViewController.swift in Sources */,
