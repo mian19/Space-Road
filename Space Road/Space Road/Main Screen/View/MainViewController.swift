@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded {
     
@@ -17,15 +18,18 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     private var infoButton: UIButton!
     private var exitButton: UIButton!
     private var pilotButton: UIButton!
+    let tapSound = URL(fileURLWithPath: Bundle.main.path(forResource: "tap", ofType: "wav")!)
+    var audioPlayer = AVAudioPlayer()
     private let presenter = MainPresenter()
     weak var appCoordinator: AppCoordinator?
-    
+
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         customView.backgroundColor = UIColor(patternImage: UIImage(named: "mainScreen")!)
         view = customView
         setTitle()
         setButtons()
+
     }
     
     override func viewDidLoad() {
@@ -45,6 +49,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         startButton = UIButton.withTextButton(with: "startButton.text".localizable(), size: 38)
         startButton.addTarget(self, action: #selector(onStartButton), for: .touchUpInside)
         settingsButton = UIButton.systemButton(image: "gear")
+        settingsButton.addTarget(self, action: #selector(onSettingsButton), for: .touchUpInside)
         recordsButton = UIButton.systemButton(image: "leaderboardsComplex")
         shuttleButton = UIButton.systemButton(image: "choseShip")
         shuttleButton.addTarget(self, action: #selector(onShuttleButton), for: .touchUpInside)
@@ -63,14 +68,31 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     
     @objc private func onStartButton() {
         appCoordinator?.toGameScreen()
+        playSound()
     }
     
     @objc private func onShuttleButton() {
+        playSound()
         appCoordinator?.toShuttleScreen()
     }
     
     @objc private func onExitButton() {
+        playSound()
         presenter.logout()
+    }
+    
+    @objc private func onSettingsButton() {
+        playSound()
+        appCoordinator?.toSettingsScreen()
+    }
+    
+    private func playSound() {
+        do {
+             audioPlayer = try AVAudioPlayer(contentsOf: tapSound)
+             audioPlayer.play()
+        } catch {
+           // couldn't load file :(
+        }
     }
     
     private func setElements() {

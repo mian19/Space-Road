@@ -27,3 +27,6 @@
 "changeColorButton.text" = "перекрасить";
 // Game Screen
 "score.text" = "Очки";
+// Settings Screen
+"titleLabel.text" = "НАСТРОЙКИ";
+"difficultyLevel.text" = "уровень сложности";

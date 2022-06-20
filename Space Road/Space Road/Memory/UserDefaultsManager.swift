@@ -34,4 +34,12 @@ class UserDefaultsManager {
         }
         return settings
     }
+    
+    func saveResults(results: [Int]) {
+            UserDefaults.standard.set(results, forKey: "results")
+    }
+    
+    func getResults() -> [Int] {
+        UserDefaults.standard.object(forKey: "results") as? [Int] ?? []
+    }
 }

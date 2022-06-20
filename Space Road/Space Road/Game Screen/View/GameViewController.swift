@@ -70,6 +70,8 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         viewForBackground.addSubview(shuttle)
     }
     
+
+    
     private func changeBackgroundImage(duration: TimeInterval) {
         animationForBackground = UIViewPropertyAnimator(duration: duration, curve: .linear, animations: {
             self.backgroundUIImageArray[0].frame.origin = CGPoint(x: 0, y: self.viewForBackground.bounds.maxY)

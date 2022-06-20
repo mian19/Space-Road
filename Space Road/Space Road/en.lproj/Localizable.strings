@@ -27,3 +27,6 @@
 "changeColorButton.text" = "repaint";
 // Game Screen
 "score.text" = "Score";
+// Settings Screen
+"titleLabel.text" = "SETTINGS";
+"difficultyLevel.text" = "difficulty level";

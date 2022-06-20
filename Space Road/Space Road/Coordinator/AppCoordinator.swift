@@ -63,4 +63,10 @@ class AppCoordinator: CoordinatorProtocol {
         viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func toSettingsScreen() {
+        let viewController = SettingsViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

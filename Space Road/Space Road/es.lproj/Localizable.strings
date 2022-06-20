@@ -27,3 +27,6 @@
 "changeColorButton.text" = "repintar";
 // Game Screen
 "score.text" = "Puntaje";
+// Settings Screen
+"titleLabel.text" = "CONFIGURACIÓN";
+"difficultyLevel.text" = "nivel de dificultad";
