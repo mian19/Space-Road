@@ -10,7 +10,7 @@ import Foundation
 struct Settings: Codable {
     var shuttleImageIndex: Int = 1
     var indexPathRowForShuttle = 0
-    var difficulty: String = "hard"
+    var difficulty: Int = 0
     var backgroundMusic: Bool = true
     var sounds: Bool = true
 }

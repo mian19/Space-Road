@@ -7,16 +7,18 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, Storyboarded {
+class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterDelegate {
 
     private var titleLabel: UILabel!
     private var difficultyLevelLabel: UILabel!
-    private var levelSegmentedControll: UISegmentedControl!
+    private var levelSegmentedControl: UISegmentedControl!
     private var soundLabel: UILabel!
     private var soundSegmentControll: UISegmentedControl!
     private var homeButton: UIButton!
     private var settings = UserDefaultsManager().getSettings()
+    private let presenter = SettingsPresenter()
     weak var appCoordinator: AppCoordinator?
+    var difficulties = ["diff.easy".localizable(), "diff.medium".localizable(), "diff.hard".localizable()]
     
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
@@ -24,10 +26,12 @@ class SettingsViewController: UIViewController, Storyboarded {
         view = customView
         setTitle()
         setButton()
+        setLevelControlled()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setViewDelegate(delegate: self)
         setElements()
 
     }
@@ -46,6 +50,26 @@ class SettingsViewController: UIViewController, Storyboarded {
         
     }
     
+    private func setLevelControlled() {
+        levelSegmentedControl = UISegmentedControl(items: self.difficulties)
+        levelSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        let font = UIFont.systemFont(ofSize: 18)
+        levelSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        levelSegmentedControl.backgroundColor = .gray
+        levelSegmentedControl.selectedSegmentIndex = UserDefaultsManager().getSettings().difficulty
+        levelSegmentedControl.addTarget(self, action: #selector(onLevelSegmentedControl), for: .valueChanged)
+        view.addSubview(levelSegmentedControl)
+    }
+    
+    @objc func onLevelSegmentedControl(target: UISegmentedControl) {
+        var settings = UserDefaultsManager().getSettings()
+        let segmentIndex = target.selectedSegmentIndex
+        settings.difficulty = segmentIndex
+        UserDefaultsManager().saveSettings(settings: settings)
+        print(segmentIndex)
+        
+    }
+    
     @objc func onHomeButton() {
         appCoordinator?.back()
     }
@@ -60,6 +84,10 @@ class SettingsViewController: UIViewController, Storyboarded {
             difficultyLevelLabel.heightAnchor.constraint(equalToConstant: 70),
             difficultyLevelLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
             difficultyLevelLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            levelSegmentedControl.widthAnchor.constraint(equalToConstant: 280),
+            levelSegmentedControl.heightAnchor.constraint(equalToConstant: 70),
+            levelSegmentedControl.topAnchor.constraint(equalTo: difficultyLevelLabel.bottomAnchor, constant: 30),
+            levelSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             homeButton.heightAnchor.constraint(equalToConstant: 80),
             homeButton.widthAnchor.constraint(equalToConstant: 80),
@@ -67,6 +95,5 @@ class SettingsViewController: UIViewController, Storyboarded {
             homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-
 
 }

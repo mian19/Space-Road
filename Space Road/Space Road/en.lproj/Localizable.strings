@@ -30,3 +30,6 @@
 // Settings Screen
 "titleLabel.text" = "SETTINGS";
 "difficultyLevel.text" = "difficulty level";
+"diff.easy" = "easy";
+"diff.medium" = "medium";
+"diff.hard" = "hard";

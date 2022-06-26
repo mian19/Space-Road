@@ -20,11 +20,11 @@ class Game: GameProtocol {
         var difficult = UserDefaultsManager().getSettings().difficulty
         var timeInterval: TimeInterval!
         switch difficult {
-        case "easy":
+        case 0:
             timeInterval = 2
-        case "medium":
+        case 1:
             timeInterval = 1.75
-        case "hard":
+        case 2:
             timeInterval = 1.5
         default:
             return 0
