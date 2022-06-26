@@ -8,18 +8,11 @@
 import Foundation
 
 protocol GamePresenterDelegate: AnyObject {
- //   func pause()
-  //  func resume()
 }
 
 class GamePresenter {
     weak var delegate: GamePresenterDelegate?
     var isPause = false
-    
-//    func changeStatusGame() {
-//        isPause ? delegate?.resume() : delegate?.pause()
-//        isPause.toggle()
-//    }
     
     func setViewDelegate(delegate: GamePresenterDelegate) {
         self.delegate = delegate

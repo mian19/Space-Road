@@ -30,6 +30,9 @@
 // Settings Screen
 "titleLabel.text" = "НАСТРОЙКИ";
 "difficultyLevel.text" = "уровень сложности";
+"sound.text" = "звуки";
 "diff.easy" = "легкий";
 "diff.medium" = "средний";
 "diff.hard" = "сложный";
+"sound.on" = "вкл";
+"sound.off" = "выкл";

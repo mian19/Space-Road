@@ -12,5 +12,5 @@ struct Settings: Codable {
     var indexPathRowForShuttle = 0
     var difficulty: Int = 0
     var backgroundMusic: Bool = true
-    var sounds: Bool = true
+    var sounds: Int = 0
 }

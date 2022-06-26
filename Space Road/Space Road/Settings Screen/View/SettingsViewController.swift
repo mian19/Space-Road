@@ -13,12 +13,14 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
     private var difficultyLevelLabel: UILabel!
     private var levelSegmentedControl: UISegmentedControl!
     private var soundLabel: UILabel!
-    private var soundSegmentControll: UISegmentedControl!
+    private var soundSegmentControl: UISegmentedControl!
     private var homeButton: UIButton!
-    private var settings = UserDefaultsManager().getSettings()
     private let presenter = SettingsPresenter()
     weak var appCoordinator: AppCoordinator?
+    var levelSegmentIndex: Int?
+    var soundSegmentIndex: Int?
     var difficulties = ["diff.easy".localizable(), "diff.medium".localizable(), "diff.hard".localizable()]
+    var sound = ["sound.on".localizable(), "sound.off".localizable()]
     
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
@@ -27,6 +29,7 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
         setTitle()
         setButton()
         setLevelControlled()
+        setSoundSegmentControl()
     }
     
     override func viewDidLoad() {
@@ -39,15 +42,16 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
     private func setTitle() {
         titleLabel = UILabel.infoLabel(text: "titleLabel.text".localizable(), size: 38, lines: 1)
         difficultyLevelLabel = UILabel.infoLabel(text: "difficultyLevel.text".localizable(), size: 28, lines: 1)
+        soundLabel = UILabel.infoLabel(text: "sound.text".localizable(), size: 28, lines: 1)
         view.addSubview(titleLabel)
         view.addSubview(difficultyLevelLabel)
+        view.addSubview(soundLabel)
     }
     
     private func setButton() {
         homeButton = UIButton.systemButton(image: "home")
         homeButton.addTarget(self, action: #selector(onHomeButton), for: .touchUpInside)
         view.addSubview(homeButton)
-        
     }
     
     private func setLevelControlled() {
@@ -61,17 +65,28 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
         view.addSubview(levelSegmentedControl)
     }
     
+    private func setSoundSegmentControl() {
+        soundSegmentControl = UISegmentedControl(items: self.sound)
+        soundSegmentControl.translatesAutoresizingMaskIntoConstraints = false
+        let font = UIFont.systemFont(ofSize: 20)
+        soundSegmentControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        soundSegmentControl.backgroundColor = .gray
+        soundSegmentControl.selectedSegmentIndex = UserDefaultsManager().getSettings().sounds
+        soundSegmentControl.addTarget(self, action: #selector(onSoundSegmentControl), for: .valueChanged)
+        view.addSubview(soundSegmentControl)
+    }
+    
     @objc func onLevelSegmentedControl(target: UISegmentedControl) {
-        var settings = UserDefaultsManager().getSettings()
-        let segmentIndex = target.selectedSegmentIndex
-        settings.difficulty = segmentIndex
-        UserDefaultsManager().saveSettings(settings: settings)
-        print(segmentIndex)
+        levelSegmentIndex = target.selectedSegmentIndex
         
     }
     
+    @objc func onSoundSegmentControl(target: UISegmentedControl) {
+        soundSegmentIndex = target.selectedSegmentIndex
+    }
+    
     @objc func onHomeButton() {
-        appCoordinator?.back()
+        presenter.saveSettings(diff: levelSegmentIndex, sound: soundSegmentIndex)
     }
     
     private func setElements() {
@@ -88,7 +103,14 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
             levelSegmentedControl.heightAnchor.constraint(equalToConstant: 70),
             levelSegmentedControl.topAnchor.constraint(equalTo: difficultyLevelLabel.bottomAnchor, constant: 30),
             levelSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            soundLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
+            soundLabel.heightAnchor.constraint(equalToConstant: 70),
+            soundLabel.topAnchor.constraint(equalTo: levelSegmentedControl.bottomAnchor, constant: 30),
+            soundSegmentControl.widthAnchor.constraint(equalToConstant: 180),
+            soundSegmentControl.heightAnchor.constraint(equalToConstant: 70),
+            soundSegmentControl.topAnchor.constraint(equalTo: soundLabel.bottomAnchor, constant: 30),
+            soundSegmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            soundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             homeButton.heightAnchor.constraint(equalToConstant: 80),
             homeButton.widthAnchor.constraint(equalToConstant: 80),
             view.bottomAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 30),
