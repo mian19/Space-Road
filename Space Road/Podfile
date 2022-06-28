@@ -10,6 +10,8 @@ pod 'SwiftLint', '~> 0.27'
 pod 'FirebaseCore'
 pod 'FirebaseAuth'
 pod 'FirebaseDatabase'
+pod 'FirebaseCrashlytics'
+pod 'FirebaseAnalytics'
 pod 'KeychainSwift', '~> 20.0'
 end
 

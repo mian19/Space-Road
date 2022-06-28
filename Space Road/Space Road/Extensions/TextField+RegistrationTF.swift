@@ -19,7 +19,6 @@ extension UITextField {
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        textField.font = UIFont(name: "Play-Regular", size: 88)
         textField.returnKeyType = .done
         textField.backgroundColor = .white
         textField.textColor = .black
