@@ -38,4 +38,7 @@
 "sound.off" = "off";
 // Info Screen
 "info.text" = "Hola, soy Anton, y este es mi proyecto de graduación. Si quieres ofrecerme un trabajo o una buena idea para una solicitud, ¡bienvenido! Puedes encontrarme en las redes sociales";
-
+// Records Screen
+"recordsLabel.text" = " RECORDS";
+"my.records" = "mi";
+"world.records" = "mundo";

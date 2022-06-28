@@ -75,4 +75,10 @@ class AppCoordinator: CoordinatorProtocol {
         viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func toRecordsScreen() {
+        let viewController = RecordsViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

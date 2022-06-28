@@ -143,7 +143,6 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
                     target.removeFromSuperview()
             }
             self.game.currentScore += 1
-            print(self.game.currentScore)
             self.labelScore.text = "score.text".localizable() + ": \(self.game.currentScore)"
         })
     }

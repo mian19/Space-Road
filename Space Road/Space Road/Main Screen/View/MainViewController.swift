@@ -51,6 +51,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         settingsButton = UIButton.systemButton(image: "gear")
         settingsButton.addTarget(self, action: #selector(onSettingsButton), for: .touchUpInside)
         recordsButton = UIButton.systemButton(image: "leaderboardsComplex")
+        recordsButton.addTarget(self, action: #selector(onRecordsButton), for: .touchUpInside)
         shuttleButton = UIButton.systemButton(image: "choseShip")
         shuttleButton.addTarget(self, action: #selector(onShuttleButton), for: .touchUpInside)
         infoButton = UIButton.systemButton(image: "information")
@@ -90,6 +91,10 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     @objc private func onInfoButton() {
         playSound()
         appCoordinator?.toInfoScreen()
+    }
+    
+    @objc private func onRecordsButton() {
+        appCoordinator?.toRecordsScreen()
     }
     
     private func playSound() {

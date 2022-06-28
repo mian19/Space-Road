@@ -28,7 +28,6 @@ class RegistrationPresenter {
                     self.delegate?.presentAlert(title: "Attention!", message: error.localizedDescription)
                 }
                 if let result = result {
-                    print(result.user.uid)
                     let ref = Database.database().reference().child("users")
                     ref.child(result.user.uid).updateChildValues(["nick": nick, "email": email])
                     // MARK: - save User to Keychain
@@ -49,7 +48,6 @@ class RegistrationPresenter {
                     self.delegate?.presentAlert(title: "Attention!", message: error.localizedDescription)
                 }
                 if let result = result {
-                    print(result.user.uid)
                     let ref = Database.database().reference().child("users")
                     ref.child(result.user.uid).getData(completion: {( error, snapshot) in
                         guard error == nil else {
