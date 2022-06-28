@@ -22,14 +22,14 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     var audioPlayer = AVAudioPlayer()
     private let presenter = MainPresenter()
     weak var appCoordinator: AppCoordinator?
-
+    
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         customView.backgroundColor = UIColor(patternImage: UIImage(named: "mainScreen")!)
         view = customView
         setTitle()
         setButtons()
-
+        
     }
     
     override func viewDidLoad() {
@@ -54,6 +54,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         shuttleButton = UIButton.systemButton(image: "choseShip")
         shuttleButton.addTarget(self, action: #selector(onShuttleButton), for: .touchUpInside)
         infoButton = UIButton.systemButton(image: "information")
+        infoButton.addTarget(self, action: #selector(onInfoButton), for: .touchUpInside)
         pilotButton = UIButton.systemButton(image: "pilot")
         exitButton = UIButton.systemButton(image: "exit")
         exitButton.addTarget(self, action: #selector(onExitButton), for: .touchUpInside)
@@ -86,12 +87,19 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         appCoordinator?.toSettingsScreen()
     }
     
+    @objc private func onInfoButton() {
+        playSound()
+        appCoordinator?.toInfoScreen()
+    }
+    
     private func playSound() {
-        do {
-             audioPlayer = try AVAudioPlayer(contentsOf: tapSound)
-             audioPlayer.play()
-        } catch {
-           // couldn't load file :(
+        if UserDefaultsManager().getSettings().sounds == 0 {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: tapSound)
+                audioPlayer.play()
+            } catch {
+                // couldn't load file :(
+            }
         }
     }
     

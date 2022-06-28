@@ -11,6 +11,8 @@
 		67022A002857911B0000C7B9 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670229FF2857911B0000C7B9 /* UIButton+CustomButton.swift */; };
 		67022A02285792430000C7B9 /* UILabel+customLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67022A01285792430000C7B9 /* UILabel+customLabel.swift */; };
 		674C6BE42857446100FC1220 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C6BE32857446100FC1220 /* MainPresenter.swift */; };
+		676007AA2869EDAE003B30F5 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676007A92869EDAE003B30F5 /* InfoViewController.swift */; };
+		676007AC2869EDBC003B30F5 /* InfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 676007AB2869EDBC003B30F5 /* InfoViewController.storyboard */; };
 		6766A4D92858841800F901D6 /* ShuttleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766A4D82858841800F901D6 /* ShuttleViewController.swift */; };
 		6766A4DB2858853800F901D6 /* ShuttleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6766A4DA2858853800F901D6 /* ShuttleViewController.storyboard */; };
 		6766A4DD2858994A00F901D6 /* GalleryOfShuttlesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766A4DC2858994A00F901D6 /* GalleryOfShuttlesCollectionView.swift */; };
@@ -65,6 +67,8 @@
 		670229FF2857911B0000C7B9 /* UIButton+CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButton.swift"; sourceTree = "<group>"; };
 		67022A01285792430000C7B9 /* UILabel+customLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+customLabel.swift"; sourceTree = "<group>"; };
 		674C6BE32857446100FC1220 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		676007A92869EDAE003B30F5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		676007AB2869EDBC003B30F5 /* InfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoViewController.storyboard; sourceTree = "<group>"; };
 		6766A4D82858841800F901D6 /* ShuttleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttleViewController.swift; sourceTree = "<group>"; };
 		6766A4DA2858853800F901D6 /* ShuttleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShuttleViewController.storyboard; sourceTree = "<group>"; };
 		6766A4DC2858994A00F901D6 /* GalleryOfShuttlesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryOfShuttlesCollectionView.swift; sourceTree = "<group>"; };
@@ -169,6 +173,14 @@
 				674C6BE32857446100FC1220 /* MainPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		676007A82869ED61003B30F5 /* Info Screen */ = {
+			isa = PBXGroup;
+			children = (
+				67DC4845286B0B210048D35F /* View */,
+			);
+			path = "Info Screen";
 			sourceTree = "<group>";
 		};
 		6766A4D5285883B000F901D6 /* Shuttle Screen */ = {
@@ -403,6 +415,7 @@
 				6766A4D5285883B000F901D6 /* Shuttle Screen */,
 				67EF2615285A7AD400944432 /* Game Screen */,
 				677C44EE2860F94100305BFD /* Settings Screen */,
+				676007A82869ED61003B30F5 /* Info Screen */,
 				67C03B81284BA4BD0034720F /* LaunchScreen.storyboard */,
 				67C03B84284BA4BD0034720F /* Info.plist */,
 				67BE1EDE2850FDA80096E845 /* GoogleService-Info.plist */,
@@ -427,6 +440,15 @@
 				674C6BE2285742E000FC1220 /* Presenter */,
 			);
 			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		67DC4845286B0B210048D35F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				676007A92869EDAE003B30F5 /* InfoViewController.swift */,
+				676007AB2869EDBC003B30F5 /* InfoViewController.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		67EF2615285A7AD400944432 /* Game Screen */ = {
@@ -511,6 +533,7 @@
 				67C03B7E284BA4BC0034720F /* MainViewController.storyboard in Resources */,
 				677C44F42860F9CA00305BFD /* SettingsViewController.storyboard in Resources */,
 				677C44F72861024C00305BFD /* tap.wav in Resources */,
+				676007AC2869EDBC003B30F5 /* InfoViewController.storyboard in Resources */,
 				677C44F928610A5000305BFD /* gameMusic.mp3 in Resources */,
 				678DE72B284D584D00CF3CD3 /* OFL.txt in Resources */,
 				67BE1EDF2850FDA90096E845 /* GoogleService-Info.plist in Resources */,
@@ -597,6 +620,7 @@
 				67786792285BC98200450D83 /* GamePresenter.swift in Sources */,
 				67C03B8C284BAA0C0034720F /* RegistrationViewController.swift in Sources */,
 				677C44F02860F99000305BFD /* SettingsViewController.swift in Sources */,
+				676007AA2869EDAE003B30F5 /* InfoViewController.swift in Sources */,
 				67EF2617285A7B0700944432 /* GameViewController.swift in Sources */,
 				6768D7E5285233C0004C4790 /* AppCoordinator.swift in Sources */,
 				6768D7E1285230B3004C4790 /* CoordinatorProtocol.swift in Sources */,

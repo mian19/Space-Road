@@ -69,4 +69,10 @@ class AppCoordinator: CoordinatorProtocol {
         viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func toInfoScreen() {
+        let viewController = InfoViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

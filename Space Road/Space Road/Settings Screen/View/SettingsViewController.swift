@@ -97,7 +97,7 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             difficultyLevelLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
             difficultyLevelLabel.heightAnchor.constraint(equalToConstant: 70),
-            difficultyLevelLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            difficultyLevelLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 35),
             difficultyLevelLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             levelSegmentedControl.widthAnchor.constraint(equalToConstant: 280),
             levelSegmentedControl.heightAnchor.constraint(equalToConstant: 70),
@@ -113,7 +113,7 @@ class SettingsViewController: UIViewController, Storyboarded, SettingsPresenterD
             soundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             homeButton.heightAnchor.constraint(equalToConstant: 80),
             homeButton.widthAnchor.constraint(equalToConstant: 80),
-            view.bottomAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 30),
+            view.bottomAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 20),
             homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }

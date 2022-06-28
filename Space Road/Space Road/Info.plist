@@ -7,6 +7,7 @@
 		<string>Play-Bold.ttf</string>
 		<string>kenvector_future.ttf</string>
 		<string>kenvector_future_thin.ttf</string>
+		<string>Play-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -29,5 +30,11 @@
 	<false/>
 	<key>NSSupportsSuddenTermination</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>tg</string>
+		<string>linkedin</string>
+	</array>
 </dict>
 </plist>
