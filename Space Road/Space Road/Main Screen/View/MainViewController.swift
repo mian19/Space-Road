@@ -94,6 +94,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     }
     
     @objc private func onRecordsButton() {
+        playSound()
         appCoordinator?.toRecordsScreen()
     }
     

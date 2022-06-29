@@ -16,6 +16,7 @@ class MainPresenter {
     
     weak var delegate: MainPresenterDelegate?
     func logout() {
+        UserDefaultsManager().saveSettings(settings: Settings())
         do {
             try Auth.auth().signOut()
             KeychainManager.shared.delete()

@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class FireBaseManager {
     
+    static let shared = FireBaseManager()
+    
     static func checkUserAuth() -> Int {
         var checkResult: Int!
         Auth.auth().addStateDidChangeListener { (_, user ) in
@@ -22,5 +24,34 @@ class FireBaseManager {
             }
         }
         return checkResult
+    }
+    
+    func getUserRecord(completion: @escaping (Int) -> Void) {
+        let nick = KeychainManager().get()?.nick ?? ""
+        DispatchQueue.main.async {
+            let ref = Database.database().reference().child("records")
+            ref.child(nick).getData(completion: {(error, snapshot) in
+                guard error == nil else {
+                    return
+                }
+                if let data = snapshot.value as? [String: Int] {
+                    completion(data["record"]!)
+                }
+            })
+        }
+    }
+    
+    func getWorldRecords(completion: @escaping ([String: Int]) -> Void) {
+        DispatchQueue.main.async {
+            let ref = Database.database().reference().child("worldRecords")
+            ref.getData(completion: {( error, snapshot) in
+                guard error == nil else {
+                    return
+                }
+                if let data = snapshot.value as? [String: Int] {
+                    completion(data)
+                }
+            })
+        }
     }
 }

@@ -7,10 +7,7 @@
 
 import UIKit
 
-
-
 class LevelSegmentedControl: UISegmentedControl {
-
       
     static func levelControl() -> LevelSegmentedControl {
         var levelControl = LevelSegmentedControl(items: difficulties)

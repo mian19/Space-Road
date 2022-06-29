@@ -28,10 +28,17 @@ class RegistrationPresenter {
                     self.delegate?.presentAlert(title: "Attention!", message: error.localizedDescription)
                 }
                 if let result = result {
+                    // MARK: - create chain mail - nick
                     let ref = Database.database().reference().child("users")
                     ref.child(result.user.uid).updateChildValues(["nick": nick, "email": email])
+                    // MARK: - create chain nick - record
+                    let ref2 = Database.database().reference().child("records")
+                    ref2.child(nick).updateChildValues(["record": 0])
+                    // MARK: - create chain nick - world record
+                    let ref3 = Database.database().reference().child("worldRecords")
+                    ref3.updateChildValues([nick: 0])
                     // MARK: - save User to Keychain
-                    KeychainManager.shared.save(User(nick: nick, email: email, password: pass))
+                    KeychainManager.shared.save(User(nick: nick, email: email, password: pass, record: 0))
                     self.delegate?.toMain()
                 }
             }
