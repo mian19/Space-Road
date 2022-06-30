@@ -27,6 +27,9 @@
 "changeColorButton.text" = "перекрасить";
 // Game Screen
 "score.text" = "Очки";
+"gameOver.text" = "Игра окончена";
+"total.text" = "Всего: ";
+"newRecord" = "Новый рекорд!";
 // Settings Screen
 "titleLabel.text" = "НАСТРОЙКИ";
 "difficultyLevel.text" = "уровень сложности";

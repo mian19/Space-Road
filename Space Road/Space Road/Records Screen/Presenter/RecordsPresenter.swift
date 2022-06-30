@@ -19,13 +19,10 @@ class RecordsPresenter {
     weak var delegate: RecordsPresenterDelegate?
  
     func downloadUserRecord() {
-        FireBaseManager().getUserRecord(completion: {record in
-            print(record)
-            DispatchQueue.main.async {
-                self.delegate?.userRecord = record
+        
+        self.delegate?.userRecord = KeychainManager().get()?.record
                 self.delegate?.recordsTable.reloadData()
-            }
-        })
+       
     }
     
     func downloadWorldRecords() {

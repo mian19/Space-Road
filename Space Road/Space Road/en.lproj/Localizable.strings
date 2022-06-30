@@ -27,6 +27,9 @@
 "changeColorButton.text" = "repaint";
 // Game Screen
 "score.text" = "Score";
+"gameOver.text" = "Game Over";
+"total.text" = "Total: ";
+"newRecord" = "New Record!";
 // Settings Screen
 "titleLabel.text" = "SETTINGS";
 "difficultyLevel.text" = "difficulty level";

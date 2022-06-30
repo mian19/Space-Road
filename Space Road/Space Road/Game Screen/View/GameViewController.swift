@@ -181,19 +181,44 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         })
         anima.startAnimation()
         anima.addCompletion {_ in
-            self.showResultView()
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                self.showResultView()
+                timer.invalidate()
+            }
         }
     }
     
     // MARK: - Show Result
     
     private func showResultView() {
+        
         let resultView = ResultView(frame: CGRect(x: 0, y: 0, width: 290, height: 255))
-        viewForBackground.addSubview(resultView)
+        view.addSubview(resultView)
+            resultView.isUserInteractionEnabled = true
         resultView.widthAnchor.constraint(equalToConstant: 290).isActive = true
         resultView.heightAnchor.constraint(equalToConstant: 255).isActive = true
         resultView.centerXAnchor.constraint(equalTo: viewForBackground.centerXAnchor).isActive = true
         resultView.centerYAnchor.constraint(equalTo: viewForBackground.centerYAnchor).isActive = true
+        resultView.homeButton.addTarget(self, action: #selector(onHomeButton), for: .touchUpInside)
+        resultView.gameOverLabel.text = "gameOver.text".localizable()
+        resultView.pointsLabel.text = "score.text".localizable() + ": \(self.game.currentScore)"
+        if checkNewRecord(record: game.currentScore) { resultView.newRecordLabel.isHidden = false
+        }
+    }
+    
+    private func checkNewRecord(record: Int) -> Bool {
+        if var user = KeychainManager().get() {
+        if record > user.record {
+            user.record = record
+            KeychainManager().save(user)
+            FireBaseManager().saveUserRecord(nick: user.nick ?? "", record: user.record)
+            return true
+        }
+        }
+        return false
+    }
+    
+    private func saveRecord() {
         
     }
     

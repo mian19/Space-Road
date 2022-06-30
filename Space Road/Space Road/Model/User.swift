@@ -11,5 +11,5 @@ struct User: Codable {
     var nick: String?
     var email: String
     var password: String
-    var record: Int?
+    var record: Int
 }

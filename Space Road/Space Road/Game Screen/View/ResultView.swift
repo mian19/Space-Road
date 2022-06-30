@@ -13,7 +13,6 @@ class ResultView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var newRecordLabel: UILabel!
     @IBOutlet weak var homeButton: UIButton!
     
@@ -37,15 +36,12 @@ class ResultView: UIView {
         contentView.frame = self.bounds
         translatesAutoresizingMaskIntoConstraints = false
         homeButton.titleLabel?.isEnabled = false
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 20
         self.clipsToBounds = true
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        hideAll()
+        newRecordLabel.text = "newRecord".localizable()
+        newRecordLabel.isHidden = true
     }
     
-    private func hideAll() {
-        contentView.subviews.forEach {
-            $0.isHidden = true
-        }
-    }
 }

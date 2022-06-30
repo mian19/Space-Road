@@ -26,8 +26,7 @@ class FireBaseManager {
         return checkResult
     }
     
-    func getUserRecord(completion: @escaping (Int) -> Void) {
-        let nick = KeychainManager().get()?.nick ?? ""
+    func getUserRecord(nick: String, completion: @escaping (Int) -> Void) {
         DispatchQueue.main.async {
             let ref = Database.database().reference().child("records")
             ref.child(nick).getData(completion: {(error, snapshot) in
@@ -38,6 +37,15 @@ class FireBaseManager {
                     completion(data["record"]!)
                 }
             })
+        }
+    }
+    
+    func saveUserRecord(nick: String, record: Int) {
+        DispatchQueue.main.async {
+            let ref = Database.database().reference().child("records")
+            ref.child(nick).updateChildValues(["record": record])
+            let ref2 = Database.database().reference().child("worldRecords")
+            ref2.updateChildValues([nick: record])
         }
     }
     

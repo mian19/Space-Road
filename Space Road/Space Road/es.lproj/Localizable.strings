@@ -27,6 +27,9 @@
 "changeColorButton.text" = "repintar";
 // Game Screen
 "score.text" = "Puntaje";
+"gameOver.text" = "Juego terminado";
+"total.text" = "Total: ";
+"newRecord" = "¡Nuevo registro!";
 // Settings Screen
 "titleLabel.text" = "CONFIGURACIÓN";
 "difficultyLevel.text" = "nivel de dificultad";

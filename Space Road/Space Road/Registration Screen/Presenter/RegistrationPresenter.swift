@@ -62,7 +62,10 @@ class RegistrationPresenter {
                         }
                         // MARK: - save User to Keychain
                         if let data = snapshot.value as? [String: String] {
-                            KeychainManager().save(User(nick: data["nick"], email: email, password: pass))
+                            FireBaseManager().getUserRecord(nick: data["nick"] ?? "", completion: { record in
+                                KeychainManager().save(User(nick: data["nick"], email: email, password: pass, record: record))
+                            })
+                            
                         }
                     })
                     self.delegate?.toMain()
