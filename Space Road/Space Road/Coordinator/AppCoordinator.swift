@@ -81,4 +81,10 @@ class AppCoordinator: CoordinatorProtocol {
         viewController.appCoordinator = self
         self.navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func toPilotScreen() {
+        let viewController = PilotViewController.createObject()
+        viewController.appCoordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

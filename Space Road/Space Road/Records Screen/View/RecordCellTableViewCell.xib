@@ -48,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="89h-Ec-stg" firstAttribute="leading" secondItem="LHr-mb-eph" secondAttribute="trailing" constant="5" id="2FN-Fu-pHL"/>
                     <constraint firstItem="paX-u4-nnZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IzS-t1-9TN"/>
@@ -71,9 +71,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -45,3 +45,5 @@
 "recordsLabel.text" = " RECORDS";
 "my.records" = "mi";
 "world.records" = "mundo";
+// Pilot Screen
+"pilotLabel.text" = "PILOTO";

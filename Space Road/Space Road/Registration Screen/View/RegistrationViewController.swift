@@ -25,7 +25,6 @@ class RegistrationViewController: UIViewController, RegistrationPresenterDelegat
 
     override func loadView() {
         setView()
-       // setBackgroundImage()
         setTitleLabel()
         setNickNameTextField()
         setEmailTextField()

@@ -45,3 +45,5 @@
 "recordsLabel.text" = "РЕКОРДЫ";
 "my.records" = "мои";
 "world.records" = "в мире";
+// Pilot Screen
+"pilotLabel.text" = "ПИЛОТ";

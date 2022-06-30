@@ -57,6 +57,7 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
         infoButton = UIButton.systemButton(image: "information")
         infoButton.addTarget(self, action: #selector(onInfoButton), for: .touchUpInside)
         pilotButton = UIButton.systemButton(image: "pilot")
+        pilotButton.addTarget(self, action: #selector(onPilotButton), for: .touchUpInside)
         exitButton = UIButton.systemButton(image: "exit")
         exitButton.addTarget(self, action: #selector(onExitButton), for: .touchUpInside)
         view.addSubview(startButton)
@@ -81,6 +82,11 @@ class MainViewController: UIViewController, MainPresenterDelegate, Storyboarded 
     @objc private func onExitButton() {
         playSound()
         presenter.logout()
+    }
+    
+    @objc private func onPilotButton() {
+        playSound()
+        appCoordinator?.toPilotScreen()
     }
     
     @objc private func onSettingsButton() {

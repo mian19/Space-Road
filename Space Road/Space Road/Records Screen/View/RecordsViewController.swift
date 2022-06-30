@@ -70,6 +70,8 @@ class RecordsViewController: UIViewController, Storyboarded, RecordsPresenterDel
         recordsTable.delegate = self
         recordsTable.dataSource = self
         recordsTable.backgroundColor = .clear
+        recordsTable.layer.cornerRadius = 15
+        recordsTable.clipsToBounds = true
         recordsTable.register(UINib(nibName: "RecordCellTableViewCell", bundle: nil), forCellReuseIdentifier: "record")
         view.addSubview(recordsTable)
     }
