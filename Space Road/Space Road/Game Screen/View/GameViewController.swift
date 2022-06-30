@@ -9,7 +9,7 @@ import UIKit
 import AudioToolbox
 
 class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded {
-
+    
     private var viewForBackground: UIView!
     private var backgroundUIImageArray: [UIImageView] = []
     private var animationForBackground = UIViewPropertyAnimator()
@@ -25,7 +25,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     private var timerForCheckIntersectionEnemyAndShuttle = Timer()
     private var game = Game()
     weak var appCoordinator: AppCoordinator?
-
+    
     override func loadView() {
         let customView = UIView(frame: UIScreen.main.bounds)
         view = customView
@@ -96,7 +96,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     
     @objc private func moveShuttleTo(touch: UITapGestureRecognizer) {
         let tapDirection = touch.location(in: viewForBackground).x
-
+        
         if tapDirection < viewForBackground.bounds.midX && shuttle.frame.origin.x > 0 {
             shuttle.movingShuttle(direction: -1)
         }
@@ -140,7 +140,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         animationForTarget.startAnimation()
         animationForTarget.addCompletion({_ in
             for target in newTargets where target.frame.origin.y >= self.viewForBackground.frame.maxY {
-                    target.removeFromSuperview()
+                target.removeFromSuperview()
             }
             self.game.currentScore += 1
             self.labelScore.text = "score.text".localizable() + ": \(self.game.currentScore)"
@@ -167,7 +167,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     self.animationForBackground.stopAnimation(true)
                     timer.invalidate()
-
+                    
                     self.showCrash()
                 }
             }
@@ -194,7 +194,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         
         let resultView = ResultView(frame: CGRect(x: 0, y: 0, width: 290, height: 255))
         view.addSubview(resultView)
-            resultView.isUserInteractionEnabled = true
+        resultView.isUserInteractionEnabled = true
         resultView.widthAnchor.constraint(equalToConstant: 290).isActive = true
         resultView.heightAnchor.constraint(equalToConstant: 255).isActive = true
         resultView.centerXAnchor.constraint(equalTo: viewForBackground.centerXAnchor).isActive = true
@@ -202,24 +202,31 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         resultView.homeButton.addTarget(self, action: #selector(onHomeButton), for: .touchUpInside)
         resultView.gameOverLabel.text = "gameOver.text".localizable()
         resultView.pointsLabel.text = "score.text".localizable() + ": \(self.game.currentScore)"
-        if checkNewRecord(record: game.currentScore) { resultView.newRecordLabel.isHidden = false
+        if checkNewRecord(record: game.currentScore) { resultView.newRecordLabel.text = "newRecord".localizable()
+            resultView.layoutSubviews()
+        } else {
+            resultView.newRecordLabel.text = ""
         }
     }
     
     private func checkNewRecord(record: Int) -> Bool {
-        if var user = KeychainManager().get() {
-        if record > user.record {
-            user.record = record
-            KeychainManager().save(user)
-            FireBaseManager().saveUserRecord(nick: user.nick ?? "", record: user.record)
-            return true
+        var returnValue = false
+        if let user = KeychainManager().get() {
+            if record > user.record {
+                returnValue = true
+            }
         }
-        }
-        return false
+        return returnValue
     }
     
     private func saveRecord() {
-        
+        DispatchQueue.main.async {
+            if var user = KeychainManager().get() {
+                user.record = self.game.currentScore
+                KeychainManager().save(user)
+                FireBaseManager().saveUserRecord(nick: user.nick ?? "", record: user.record)
+            }
+        }
     }
     
     // MARK: - Pause button
@@ -232,7 +239,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
         showPauseView()
         pauseButton.isHidden = true
     }
-
+    
     @objc func resumeGame() {
         let pausedTime: CFTimeInterval = view.layer.timeOffset
         view.layer.speed = 1.0
@@ -276,6 +283,9 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
     }
     
     @objc func onHomeButton() {
+        if checkNewRecord(record: game.currentScore) {
+            saveRecord()
+        }
         self.appCoordinator?.back()
     }
     
@@ -287,7 +297,7 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
             pauseButton.widthAnchor.constraint(equalToConstant: 30),
             pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
             pauseButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-        
+            
             labelScore.heightAnchor.constraint(equalToConstant: 20),
             labelScore.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             labelScore.widthAnchor.constraint(equalToConstant: 120),
@@ -295,5 +305,5 @@ class GameViewController: UIViewController, GamePresenterDelegate, Storyboarded 
             
         ])
     }
-
+    
 }

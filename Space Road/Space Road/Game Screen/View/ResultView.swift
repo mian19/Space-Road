@@ -40,8 +40,6 @@ class ResultView: UIView {
         self.layer.cornerRadius = 20
         self.clipsToBounds = true
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        newRecordLabel.text = "newRecord".localizable()
-        newRecordLabel.isHidden = true
     }
     
 }
