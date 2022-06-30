@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Space Road
+
+  Created by Kyzu on 4.06.22.
+  
+*/
+// Registration Screen
+"titleLabel.title" = "Registration";
+"nickNameTextField.placeholder" = "Enter nickname";
+"emailTextField.placeholder" = "Enter email";
+"passwordTextField.placeholder" = "Enter password";
+"registrateButton.text" = "Sign Up";
+"alredyLabel.title" = "Alredy have an account?";
+"authorizationButton.text" = "Log in";
+"attention.text" = "Attention!";
+"attention.message" = "Fill all fields!";
+// Authorization Select
+"titleLabelEnter.title" = "Log into";
+"alredyLabelEnter.title" = "Don't have an account?";
+// Main Screen
+"helloLabel.text" = "Let's\n play!";
+"startButton.text" = "START";
+// Shuttle Screen
+"labelSelect.text" = "choose your\n shuttle!";
+"selectButton.text" = "select";
+"changeColorButton.text" = "repaint";
+// Game Screen
+"score.text" = "Score";
+"gameOver.text" = "Game Over";
+"total.text" = "Total: ";
+"newRecord" = "New Record!";
+// Settings Screen
+"titleLabel.text" = "SETTINGS";
+"difficultyLevel.text" = "difficulty level";
+"sound.text" = "sounds";
+"diff.easy" = "easy";
+"diff.medium" = "medium";
+"diff.hard" = "hard";
+"sound.on" = "on";
+"sound.off" = "off";
+// Info Screen
+"info.text" = "Hi, I'm Anton, and this is my graduation project. If you want to offer me a job or a good idea for an application - welcome! You can find me in social networks";
+// Records Screen
+"recordsLabel.text" = "RECORDS";
+"my.records" = "my";
+"world.records" = "world";
+// Pilot Screen
+"pilotLabel.text" = "PILOT";

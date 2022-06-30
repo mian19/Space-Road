@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Space Road
+
+  Created by Kyzu on 4.06.22.
+  
+*/
+// Registration Screen
+"titleLabel.title" = "Registro";
+"nickNameTextField.placeholder" = "Introduce el apodo";
+"emailTextField.placeholder" = "Correo electrónico";
+"passwordTextField.placeholder" = "Contraseña";
+"registrateButton.text" = "Registrarse";
+"alredyLabel.title" = "Ya tienes una cuenta?";
+"authorizationButton.text" = "Iniciar";
+"attention.text" = "Atención!";
+"attention.message" = "Rellena todos los campos!";
+// Authorization Select
+"titleLabelEnter.title" = "Iniciar sesión";
+"alredyLabelEnter.title" = "No tienes una cuenta?";
+// Main Screen
+"helloLabel.text" = "Juguemos!";
+"startButton.text" = "COMIENZO";
+// Shuttle Screen
+"labelSelect.text" = "elige tu\n lanzadera!";
+"selectButton.text" = "seleccione";
+"changeColorButton.text" = "repintar";
+// Game Screen
+"score.text" = "Puntaje";
+"gameOver.text" = "Juego terminado";
+"total.text" = "Total: ";
+"newRecord" = "¡Nuevo registro!";
+// Settings Screen
+"titleLabel.text" = "CONFIGURACIÓN";
+"difficultyLevel.text" = "nivel de dificultad";
+"sound.text" = "suena";
+"diff.easy" = "fácil";
+"diff.medium" = "medio";
+"diff.hard" = "difícil";
+"sound.on" = "on";
+"sound.off" = "off";
+// Info Screen
+"info.text" = "Hola, soy Anton, y este es mi proyecto de graduación. Si quieres ofrecerme un trabajo o una buena idea para una solicitud, ¡bienvenido! Puedes encontrarme en las redes sociales";
+// Records Screen
+"recordsLabel.text" = " RECORDS";
+"my.records" = "mi";
+"world.records" = "mundo";
+// Pilot Screen
+"pilotLabel.text" = "PILOTO";

@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Space Road
+
+  Created by Kyzu on 4.06.22.
+  
+*/
+// Registration Screen
+"titleLabel.title" = "Регистрация";
+"nickNameTextField.placeholder" = "Введите ник";
+"emailTextField.placeholder" = "Введите почту";
+"passwordTextField.placeholder" = "Введите пароль";
+"registrateButton.text" = "Регистрация";
+"alredyLabel.title" = "Уже есть аккаунт?";
+"authorizationButton.text" = "Войти";
+"attention.text" = "Внимание!";
+"attention.message" = "Заполните все поля!";
+// Authorization Select
+"titleLabelEnter.title" = "Вход";
+"alredyLabelEnter.title" = "Еще нет аккаунта?";
+// Main Screen
+"helloLabel.text" = "Сыграем!";
+"startButton.text" = "СТАРТ";
+// Shuttle Screen
+"labelSelect.text" = "выбери свой\n корабль!";
+"selectButton.text" = "выбор";
+"changeColorButton.text" = "перекрасить";
+// Game Screen
+"score.text" = "Очки";
+"gameOver.text" = "Игра окончена";
+"total.text" = "Всего: ";
+"newRecord" = "Новый рекорд!";
+// Settings Screen
+"titleLabel.text" = "НАСТРОЙКИ";
+"difficultyLevel.text" = "уровень сложности";
+"sound.text" = "звуки";
+"diff.easy" = "легкий";
+"diff.medium" = "средний";
+"diff.hard" = "сложный";
+"sound.on" = "вкл";
+"sound.off" = "выкл";
+// Info Screen
+"info.text" = "Привет, я Антон, и это мой дипломный проект. Если вы хотите предложить мне работу или хорошую идею для приложения - добро пожаловать! Вы можете найти меня в социальных сетях";
+// Records Screen
+"recordsLabel.text" = "РЕКОРДЫ";
+"my.records" = "мои";
+"world.records" = "в мире";
+// Pilot Screen
+"pilotLabel.text" = "ПИЛОТ";
